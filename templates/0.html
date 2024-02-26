@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/0.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Al Shazly Store </h1>
+    <h2>اخواتي  انا مش بتاع بامبز بس وقعت في ايدي صفقة بامبز و هبيع الواحدةة ب 3 جني </h2>
+    <ul>  {% for pamps in pamps_list %}
+        <li> <h3>{{ pamps }}</h3></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
