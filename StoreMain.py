@@ -7,13 +7,15 @@ APP.url_map.sort_key = False
 APP.debug = True
 pamps_list = ["pamps0","pamps1","pamps2","pamps4"]
 
-@APP.route("/")
+@APP.route("/shazly")
 def routeHome():
-    return render_template("0.html", pamps_list = pamps_list)
+
+    return render_template("0.html", pamps_list = pamps_list, ROUT="shazly" )
 @APP.route("/user/<username>")
 def rout_usr(username):
 
 
     pass
+
 if __name__ == "__main__":
     APP.run(host=HOST, port=PORT, debug=True)
