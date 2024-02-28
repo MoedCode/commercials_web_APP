@@ -5,7 +5,7 @@ APP = Flask(__name__)
 HOST, PORT = '0.0.0.0' , 3000
 APP.url_map.sort_key = False
 APP.debug = True
-pamps_list = ["pamps0","pamps1","pamps2","pamps4"]
+pamps_list = ["../static/images/0.png","../static/images/1.png","../static/images/2.png","../static/images/3.png"]
 
 @APP.route("/shazly")
 def routeHome():
