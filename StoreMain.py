@@ -8,6 +8,7 @@ APP.debug = True
 pamps_list = ["Product0","Product1","Product2","Product3"]
 
 @APP.route("/")
+@APP.route("/home")
 def routeHome():
 
     return render_template("1.html", pamps_list = pamps_list, ROUT="/" )
