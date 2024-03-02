@@ -2,15 +2,15 @@
 from flask import Flask,  render_template
 
 APP = Flask(__name__)
-HOST, PORT = '0.0.0.0' , 3000
+HOST, PORT = '0.0.0.0' , 5005
 APP.url_map.sort_key = False
 APP.debug = True
-pamps_list = ["../static/images/0.png","../static/images/1.png","../static/images/2.png","../static/images/3.png"]
+pamps_list = ["Product0","Product1","Product2","Product3"]
 
-@APP.route("/shazly")
+@APP.route("/")
 def routeHome():
 
-    return render_template("0.html", pamps_list = pamps_list, ROUT="shazly" )
+    return render_template("1.html", pamps_list = pamps_list, ROUT="/" )
 @APP.route("/user/<username>")
 def rout_usr(username):
 
