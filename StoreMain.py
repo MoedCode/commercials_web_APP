@@ -18,5 +18,6 @@ def rout_usr(username):
 
     pass
 
+
 if __name__ == "__main__":
     APP.run(host=HOST, port=PORT, debug=True)
