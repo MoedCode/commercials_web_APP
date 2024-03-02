@@ -14,10 +14,7 @@ def routeHome():
     return render_template("1.html", pamps_list = pamps_list, ROUT="/" )
 @APP.route("/user/<username>")
 def rout_usr(username):
-
-
     pass
-
 
 if __name__ == "__main__":
     APP.run(host=HOST, port=PORT, debug=True)
