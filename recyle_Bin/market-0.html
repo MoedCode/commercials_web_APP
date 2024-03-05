@@ -40,38 +40,38 @@
     <!-- Website Under Construction Message -->
     <br><br><h2 class="under-construction"> Website Under Construction 😎</h2><br><br>
 
-<!-- Product Section with Scroll -->
-<div class="products-section">
-    <div class="products-grid">
-        <!-- Product Cards -->
-        {% for product in products_list %}
-            <div class="product-card">
-                <img src="{{ product.image }}" alt="Product Image" class="product-image">
-                <div class="product-info">
-                    <h3>{{loop.index }}</h3>
-                    <p><strong>Name:</strong> {{ product.name }}</p>
-                    <p><strong>Brand:</strong> {{ product.brand }}</p>
-                    <p><strong>Discount:</strong> {{ product.discount }}</p>
+    <!-- Product Section with Scroll -->
+    <div class="products-section">
+        <div class="products-grid">
+            <!-- Product Cards -->
+            {% for  Idx, product in enumerate(products_list): %}
 
-                    <!-- <p><strong>ID:</strong> {{ product.id }}</p>
-                    <p><strong>Barcode:</strong> {{ product.barcode }}</p>
-                    <p><strong>Category:</strong> {{ product.category }}</p>
-                    <p><strong>Description:</strong> {{ product.description }}</p>
-                    <p><strong>Price:</strong> {{ product.price }}</p>
-                    <p><strong>Stock Quantity:</strong> {{ product.stock_quantity }}</p>
-                    <p><strong>Rating:</strong> {{ product.rating }}</p>
-                    <p><strong>In Stock:</strong> {{ product.in_stock }}</p> -->
+                <div class="product-card">
+                    <img src="{{ product.image }}" alt="Product Image" class="product-image">
+                    <div class="product-info">
+                        <h3>{{Idx}}</h3>
+                        <p><strong>ID:</strong> {{ product.id }}</p>
+                        <p><strong>Name:</strong> {{ product.name }}</p>
+                        <p><strong>Barcode:</strong> {{ product.barcode }}</p>
+                        <p><strong>Category:</strong> {{ product.category }}</p>
+                        <p><strong>Description:</strong> {{ product.description }}</p>
+                        <p><strong>Price:</strong> {{ product.price }}</p>
+                        <p><strong>Discount:</strong> {{ product.discount }}</p>
+                        <p><strong>Stock Quantity:</strong> {{ product.stock_quantity }}</p>
+                        <p><strong>Brand:</strong> {{ product.brand }}</p>
+                        <p><strong>Rating:</strong> {{ product.rating }}</p>
+                        <p><strong>In Stock:</strong> {{ product.in_stock }}</p>
 
-                    <!-- More Info and Purchase Buttons -->
-                    <div class="buttons">
-                        <button class="btn btn-info" onclick="openPopup({{loop.index}} )">More Info</button>
-                        <button class="btn btn-success" onclick="purchaseProduct({{ product.id }})">Purchase</button>
+                        <!-- More Info and Purchase Buttons -->
+                        <div class="buttons">
+                            <button class="btn btn-info" onclick="openPopup()">More Info</button>
+                            <button class="btn btn-success" onclick="purchaseProduct({{ product.id }})">Purchase</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-</div>
 
     <!-- Product Details Modal -->
     <div class="popup" id="myPopup">
@@ -85,44 +85,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 <!-- Your custom script for handling More Info and Purchase buttons -->
-<!-- Product Details Modal -->
-<div class="popup" id="myPopup">
-    <div class="popup-content">
-        <button class="close" onclick="closePopup()">&times;</button>
-        <div id="productDetails"></div>
-    </div>
-</div>
-
-<!-- Your custom script for handling More Info and Purchase buttons -->
 <script>
     // Pass the products_list from Flask to JavaScript
     const productsList = {{ products_list | tojson | safe }};
-
-    function openPopup(Idx) {
-        const product = productsList[Idx - 1]; // Adjust for 0-based index in array
-        console.log(product.brand, "\n", Idx);
-
-        // Update the popup content with product details
-        document.getElementById('myPopup').innerHTML = `
-            <div class="product-card-0">
-            <button class="close" onclick="closePopup()">&times;</button>
-            <h3>${product.name}</h3>
-            <img src="${product.image}" alt="Product Image" class="popup-image">
-            <p><strong>ID:</strong> ${product.id}</p>
-            <p><strong>Barcode:</strong> ${product.barcode}</p>
-            <p><strong>Category:</strong> ${product.category}</p>
-            <p><strong>Description:</strong> ${product.description}</p>
-            <p><strong>Price:</strong> ${product.price}</p>
-            <p><strong>Discount:</strong> ${product.discount}</p>
-            <p><strong>Stock Quantity:</strong> ${product.stock_quantity}</p>
-            <p><strong>Brand:</strong> ${product.brand}</p>
-            <p><strong>Rating:</strong> ${product.rating}</p>
-            <p><strong>In Stock:</strong> ${product.in_stock}</p>
-        </div>
-
-        `;
-
-        // Display the popup
+    function openPopup() {
         document.getElementById('myPopup').style.display = 'block';
     }
 
@@ -130,8 +96,6 @@
         document.getElementById('myPopup').style.display = 'none';
     }
 
-    window.document.body.style.backgroundColor="#212121"
-    window.document.body.style.color="#fdfddfdf"
     // Close the popup if the user clicks outside of it
     window.onclick = function(event) {
         var popup = document.getElementById('myPopup');
@@ -139,6 +103,7 @@
             popup.style.display = 'none';
         }
     }
+
 </script>
     <style>
         body {

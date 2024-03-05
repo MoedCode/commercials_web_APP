@@ -1,6 +1,6 @@
 # Updated items list
 products_list = [
-    {'id': 1, 'name': 'Phone', 'barcode': '893212299897', 'category': 'Electronics', 'description': 'Smartphone with advanced features', 'price': 500, 'discount': 10, 'stock_quantity': 50, 'brand': 'BrandA', 'rating': 4.5, 'in_stock': True, 'image': 'static/images/market/phone.jfif'},
+    {'id': 1, 'name': 'Phone', 'barcode': '893212299897', 'category': 'Electronics', 'description': 'Smartphone with advanced features', 'price': 500, 'discount': 10, 'stock_quantity': 50, 'brand': 'BrandA', 'rating': 4.5, 'in_stock': True, 'image': 'static/images/market/OIP.jfif'},
     {'id': 2, 'name': 'Laptop', 'barcode': '123985473165', 'category': 'Electronics', 'description': 'High-performance laptop for professionals', 'price': 900, 'discount': 5, 'stock_quantity': 20, 'brand': 'BrandB', 'rating': 4.8, 'in_stock': True, 'image': 'static/images/market/laptop.jfif'},
     {'id': 3, 'name': 'Keyboard', 'barcode': '231985128446', 'category': 'Computer Accessories', 'description': 'Mechanical keyboard with customizable RGB lighting', 'price': 150, 'discount': 0, 'stock_quantity': 100, 'brand': 'BrandC', 'rating': 4.2, 'in_stock': False, 'image': 'static/images/market/keyboard0.jfif'},
     {'id': 4, 'name': 'Headphones', 'barcode': '789456123789', 'category': 'Electronics', 'description': 'High-quality noise-canceling headphones', 'price': 200, 'discount': 15, 'stock_quantity': 30, 'brand': 'BrandD', 'rating': 4.7, 'in_stock': True, 'image': 'static/images/market/earpods0.jfif'},

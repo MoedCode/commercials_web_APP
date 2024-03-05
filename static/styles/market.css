@@ -1,0 +1,85 @@
+body {
+    background-color: #212121;
+    color: #fdfddfdf;
+}
+
+/* Products Section Styles */
+.products-section {
+    overflow: auto;
+    padding: 20px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Product Card Styles */
+.product-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+/* Product Image Styles */
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Product Info Styles */
+.product-info {
+    font-size: 14px;
+}
+
+/* More Info and Purchase Buttons Styles */
+.buttons {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.btn {
+    margin-right: 10px;
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 65%;
+    height: auto;
+    /* max-height: fit-content; */
+    margin-left: 25%; margin-top: auto;
+    background-color: #414145;
+    color: #fdfddfdf;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.product-card-0
+{
+    width: 100%;
+    height: 100%;
+    margin: 2%;
+
+}
+.product-card-0 img{
+    width: 80%;
+    height: 50%;
+}
