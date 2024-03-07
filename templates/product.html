@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}
+view product
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="../static/styles/product.css">
+
+<!-- Layout Toggle Button -->
+<div class="toggle-layout-container">
+    <button id="layoutToggleBtn" class="btn btn-secondary">Toggle Layout</button>
+</div>
+
+<div class="container-fluid mt-4 product-container">
+    <div class="row">
+        <!-- Product Images -->
+        <div class="col-md-6 images-container">
+            <div class="product-images">
+                {% for Pimg in product.img_list %}
+                    <img src="../{{ Pimg }}" alt="Product Image" class="product-image">
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="col-md-6 product-info-container">
+            <div class="product-info">
+                <h3>{{ product.name }}</h3>
+                <h3><strong>Brand:</strong> {{ product.brand }}</h3>
+                <h3><strong>Discount:</strong> {{ product.discount }}</h3>
+
+                <h3><strong>ID:</strong> {{ product.id }}</h3>
+                <h3><strong>Barcode:</strong> {{ product.barcode }}</h3>
+                <h3><strong>Category:</strong> {{ product.category }}</h3>
+                <h3><strong>Description:</strong> {{ product.description }}</h3>
+                <h3><strong>Price:</strong> {{ product.price }}</h3>
+                <h3><strong>Stock Quantity:</strong> {{ product.stock_quantity }}</h3>
+                <h3><strong>Rating:</strong> {{ product.rating }}</h3>
+                <h3><strong>In Stock:</strong> {{ product.in_stock }}</h3>
+
+                <!-- More Info and Purchase Buttons -->
+                <div class="buttons mt-3">
+                    <button class="btn btn-success" onclick="purchaseProduct({{ product.id }})">Purchase</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript to handle layout toggle
+    let gridLayout = true;
+
+    document.getElementById('layoutToggleBtn').addEventListener('click', function () {
+        const productContainer = document.querySelector('.product-container');
+        const imagesContainer = document.querySelector('.images-container');
+        const productInfoContainer = document.querySelector('.product-info-container');
+
+        gridLayout = !gridLayout;
+
+        if (gridLayout) {
+            productContainer.classList.remove('flex-column');
+            imagesContainer.classList.remove('flex-column');
+            productInfoContainer.classList.remove('order-first');
+        } else {
+            productContainer.classList.add('flex-column');
+            imagesContainer.classList.add('flex-column');
+            productInfoContainer.classList.add('order-first');
+        }
+    });
+</script>
+
+{% endblock %}

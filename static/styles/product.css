@@ -1,0 +1,75 @@
+/* ... (previous styles) */
+
+/* Layout Toggle Button Styles */
+.toggle-layout-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Product Container Styles */
+.product-container {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* Product Images Styles */
+.images-container {
+    height: 60%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+}
+
+/* Product Info Styles */
+.product-info-container {
+    height: 100%;
+}
+
+.product-info {
+    font-size: 16px;
+    padding: 20px;
+    color: #333;
+    background-color: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Added hover effect for image zoom */
+.product-image:hover {
+    transform: scale(1.1);
+}
+
+/* auto Button Styles */
+.auto-button {
+    position: absolute;
+    display: none;
+    font-size: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.auto-button:hover {
+    background-color: #555;
+}
+
+/* Show auto button only when content is overflow */
+.images-container:hover .auto-button,
+.product-info:hover .auto-button {
+    display: block;
+}
+
+/* auto button styling for X axis */
+.auto-button-x {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* auto button styling for Y axis */
+.auto-button-y {
+    right: 0;
+}

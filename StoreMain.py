@@ -17,6 +17,20 @@ def routeHome():
 # @APP.route('/prostore/market')
 def rout_market():
     return render_template('market.html', products_list=products_list)
+@APP.route('/product/<int:productId>')
+def reut_product(productId):
+
+    concern_product = {}
+    for product in products_list:
+        if product['id'] == productId:
+            concern_product = product
+
+
+        # else:
+        #     pass
+        #     concern_product = {"Error":"Not Found", "ID":productId}
+
+    return render_template('product.html', product=concern_product)
 @APP.route("/user/<username>")
 def rout_usr(username):
     pass

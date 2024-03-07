@@ -4,6 +4,7 @@ body {
 }
 
 /* Products Section Styles */
+
 .products-section {
     overflow: auto;
     padding: 20px;
@@ -18,10 +19,16 @@ body {
 /* Product Card Styles */
 .product-card {
     border: 1px solid #ddd;
+
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+    height: 55vh;
+}
+.product-card  img {
+    width: 100%;
+    height: 60%;
 }
 
 .product-card:hover {
@@ -29,12 +36,12 @@ body {
 }
 
 /* Product Image Styles */
-.product-image {
+/* .product-image {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
-}
+} */
 
 /* Product Info Styles */
 .product-info {
@@ -52,34 +59,50 @@ body {
 }
 
 
+
+
+
 .popup {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 65%;
-    height: auto;
+    min-width: fit-content; width: 35%;
+    height: 85%;min-height: fit-content;
+
     /* max-height: fit-content; */
-    margin-left: 25%; margin-top: auto;
+    margin-left: 25%; margin-top: 5%;
     background-color: #414145;
     color: #fdfddfdf;
+    overflow: scroll;
 }
-.close {
+.popup image{
+    width: 120vw; max-width: 150vw;
+    height: 120vw; max-height: 150vw;
+
+}
+ #close0 {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 20px;
     font-weight: bold;
+    width: 10%;
+    height: 5%;
     cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border-radius: 25%;
 }
 .product-card-0
 {
-    width: 100%;
-    height: 100%;
+   min-width: 100%;
+   min-height: 100%;
     margin: 2%;
 
 }
 .product-card-0 img{
-    width: 80%;
-    height: 50%;
+    margin: auto;
+    width: 90%;
+    height: 60%;
 }
