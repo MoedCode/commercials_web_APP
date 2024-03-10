@@ -32,8 +32,9 @@
 
                     <!-- More Info and Purchase Buttons -->
                     <div class="buttons">
-                        <button class="btn btn-info"><a id="product_link" href='/product/{{ product.id }}' target="_blank">View page</a></button>
-                        <button class="btn btn-info" onclick="openPopup({{loop.index}} )">More Info</button>
+                        <button class="btn btn-info"><a id="product_link" href="{{ url_for('rout_product', productId=product.id) }}" target="_blank">View page</a></button>
+
+                        <button class="btn btn-info" onclick="openPopup({{product.id }} )">More Info</button>
                         <button class="btn btn-success" onclick="purchaseProduct({{ product.id }})">Purchase</button>
                     </div>
                 </div>
@@ -56,19 +57,25 @@
 <script>
     // Pass the products_list from Flask to JavaScript
     const productsList = {{ products_list | tojson | safe }};
-    let Idx_g = 0, product_ = "";
+    let product_ = "";
     let purchTtn = "", viewPtn = "";
     let backPtn = `
     <button  class="btn btn-info" onclick="goBack()"><a href="/market">Market</a></button>
-
     `;
-    function openPopup(Idx) {
-        Idx_g = Idx;
-        const product = productsList[Idx - 1]; // Adjust for 0-based index in array
-        console.log(product.brand, "\n", Idx);
+
+    function openPopup(productId) {
+        console.log(typeof productId);
+
+        let product = {};
+        for (const productObj of productsList) {
+            if (productObj.id == productId) {
+                product = productObj;
+                console.log(productObj);
+            }
+        }
 
         // Update the popup content with product details
-           product_ = `
+        product_ = `
             <div class="product-card-0">
             <button id="close0" onclick="closePopup()"> X</button>
             <h3>${product.name}</h3>
@@ -83,47 +90,38 @@
             <p><strong>Brand:</strong> ${product.brand}</p>
             <p><strong>Rating:</strong> ${product.rating}</p>
             <p><strong>In Stock:</strong> ${product.in_stock}</p>
+        </div>`;
 
-        </div>
-
-        `;
         purchTtn = `
-        <button class="btn btn-success" onclick="purchaseProduct(${ product.id })">Purchase</button>
+        <button class="btn btn-success" onclick="purchaseProduct(${product.id})">Purchase</button>
         `;
-        viewPtn=`
+
+        viewPtn = `
         <button class="btn btn-info"><a id="product_link" href='/product/${product.id}' target="_blank">View page</a></button>
-        `
+        `;
 
         document.getElementById('myPopup').innerHTML = product_ + purchTtn + viewPtn;
 
         // Display the popup
         document.getElementById('myPopup').style.display = 'block';
     }
-/*  function view(){
-        _ = `
-        ${product_}
-        ${purchTtn}
-        ${backPtn}
-        `;
-        document.body.innerHTML = _;
-    }
+
     function closePopup() {
         document.getElementById('myPopup').style.display = 'none';
     }
-    */
 
-     function goBack() {
-            // Use the history object to navigate back
-            window.history.back();
-        }
-    window.document.body.style.backgroundColor="#212121"
-    window.document.body.style.color="#fdfddfdf"
+    function goBack() {
+        // Use the history object to navigate back
+        window.history.back();
+    }
+
     // Close the popup if the user clicks outside of it
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         var popup = document.getElementById('myPopup');
         if (event.target === popup) {
             popup.style.display = 'none';
         }
     }
 </script>
+
 {% endblock %}

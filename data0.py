@@ -22,12 +22,42 @@ products_list = [
          'static/images/market/OIP.jfif',
                   ]
      },
-    {'id': 2, 'name': 'Laptop', 'barcode': '123985473165', 'category': 'Electronics', 'description': 'High-performance laptop for professionals', 'price': 900, 'discount': 5, 'stock_quantity': 20, 'brand': 'BrandB', 'rating': 4.8, 'in_stock': True, 'img_list': ['static/images/market/laptop.jfif']},
-    {'id': 3, 'name': 'Keyboard', 'barcode': '231985128446', 'category': 'Computer Accessories', 'description': 'Mechanical keyboard with customizable RGB lighting', 'price': 150, 'discount': 0, 'stock_quantity': 100, 'brand': 'BrandC', 'rating': 4.2, 'in_stock': False, 'img_list': ['static/images/market/keyboard0.jfif']},
-    {'id': 4, 'name': 'Headphones', 'barcode': '789456123789', 'category': 'Electronics', 'description': 'High-quality noise-canceling headphones', 'price': 200, 'discount': 15, 'stock_quantity': 30, 'brand': 'BrandD', 'rating': 4.7, 'in_stock': True, 'img_list': ['static/images/market/earpods0.jfif']},
-    {'id': 5, 'name': 'Smartwatch', 'barcode': '456123789123', 'category': 'Wearables', 'description': 'Fitness tracking smartwatch with heart rate monitor', 'price': 150, 'discount': 8, 'stock_quantity': 25, 'brand': 'BrandE', 'rating': 4.4, 'in_stock': True, 'img_list': ['static/images/market/Smartwatch0.jfif']},
-    {'id': 6, 'name': 'Camera', 'barcode': '987654321456', 'category': 'Electronics', 'description': 'Digital camera with high-resolution capabilities', 'price': 700, 'discount': 20, 'stock_quantity': 15, 'brand': 'BrandF', 'rating': 4.9, 'in_stock': True, 'img_list': ['static/images/market/Camera0.jfif']},
-    {'id': 7, 'name': 'Tablet', 'barcode': '654321789456', 'category': 'Electronics', 'description': 'Portable tablet with a large screen', 'price': 300, 'discount': 12, 'stock_quantity': 40, 'brand': 'BrandG', 'rating': 4.6, 'in_stock': True, 'img_list': ['static/images/market/laptop.jfif']},
+    {'id': 2, 'name': 'Laptop', 'barcode': '123985473165', 'category': 'Electronics', 'description': 'High-performance laptop for professionals', 'price': 900, 'discount': 5, 'stock_quantity': 20, 'brand': 'BrandB', 'rating': 4.8, 'in_stock': True, 'img_list': [
+        'static/images/market/laptop.jfif',
+        'static/images/market/laptop.jfif',
+        'static/images/market/laptop.jfif',
+        'static/images/market/laptop.jfif',
+        'static/images/market/laptop.jfif',
+        'static/images/market/laptop.jfif',
+        'static/images/market/laptop.jfif',
+    ]},
+    {'id': 3, 'name': 'Keyboard', 'barcode': '231985128446', 'category': 'Computer Accessories', 'description': 'Mechanical keyboard with customizable RGB lighting', 'price': 150, 'discount': 0, 'stock_quantity': 100, 'brand': 'BrandC', 'rating': 4.2, 'in_stock': False, 'img_list': [
+        'static/images/market/keyboard0.jfif',
+        'static/images/market/keyboard0.jfif',
+        'static/images/market/keyboard0.jfif',
+        'static/images/market/keyboard0.jfif',
+    ]},
+    {'id': 4, 'name': 'Headphones', 'barcode': '789456123789', 'category': 'Electronics', 'description': 'High-quality noise-canceling headphones', 'price': 200, 'discount': 15, 'stock_quantity': 30, 'brand': 'BrandD', 'rating': 4.7, 'in_stock': True, 'img_list': [
+        'static/images/market/earpods0.jfif',
+        'static/images/market/earpods0.jfif',
+        'static/images/market/earpods0.jfif',
+        'static/images/market/earpods0.jfif',
+    ]},
+    {'id': 5, 'name': 'Smartwatch', 'barcode': '456123789123', 'category': 'Wearables', 'description': 'Fitness tracking smartwatch with heart rate monitor', 'price': 150, 'discount': 8, 'stock_quantity': 25, 'brand': 'BrandE', 'rating': 4.4, 'in_stock': True, 'img_list': [
+        'static/images/market/Smartwatch0.jfif',
+        'static/images/market/Smartwatch0.jfif',
+        'static/images/market/Smartwatch0.jfif',
+        'static/images/market/Smartwatch0.jfif',
+    ]},
+    {'id': 6, 'name': 'Camera', 'barcode': '987654321456', 'category': 'Electronics', 'description': 'Digital camera with high-resolution capabilities', 'price': 700, 'discount': 20, 'stock_quantity': 15, 'brand': 'BrandF', 'rating': 4.9, 'in_stock': True, 'img_list': [
+        'static/images/market/Camera0.jfif'
+    ]},
+    {'id': 7, 'name': 'Tablet', 'barcode': '654321789456', 'category': 'Electronics', 'description': 'Portable tablet with a large screen', 'price': 300, 'discount': 12, 'stock_quantity': 40, 'brand': 'BrandG', 'rating': 4.6, 'in_stock': True, 'img_list': [
+        'static/images/market/laptop.jfif',
+        'static/images/market/laptop.jfif',
+        'static/images/market/laptop.jfif',
+        'static/images/market/laptop.jfif',
+    ]},
     {'id': 8, 'name': 'Wireless Earbuds', 'barcode': '321654987123', 'category': 'Electronics', 'description': 'Wireless earbuds with long battery life', 'price': 100, 'discount': 5, 'stock_quantity': 60, 'brand': 'BrandH', 'rating': 4.3, 'in_stock': True, 'img_list': ['static/images/market/earpods1.jfif']},
     {'id': 9, 'name': 'Gaming Console', 'barcode': '159753246802', 'category': 'Gaming', 'description': 'High-performance gaming console for immersive gaming experience', 'price': 400, 'discount': 18, 'stock_quantity': 10, 'brand': 'BrandI', 'rating': 4.8, 'in_stock': True, 'img_list': ['static/images/market/Gaming_Console.jfif']},
     {'id': 10, 'name': 'Fitness Tracker', 'barcode': '147258369001', 'category': 'Wearables', 'description': 'Fitness tracker with step counter and heart rate monitor', 'price': 80, 'discount': 3, 'stock_quantity': 50, 'brand': 'BrandJ', 'rating': 4.5, 'in_stock': True, 'img_list': ['/static/images/home_page/download.jfif']},
@@ -52,3 +82,11 @@ products_list = [
     {'id': 29, 'name': 'Wireless Mouse 2', 'barcode': '147852369258', 'category': 'Computer Accessories', 'description': 'Wireless mouse with ergonomic design', 'price': 30, 'discount': 5, 'stock_quantity': 50, 'brand': 'BrandM', 'rating': 4.2, 'in_stock': True, 'img_list': ['/static/images/home_page/download.jfif']},
     {'id': 30, 'name': 'USB Flash Drive 2', 'barcode': '369258147852', 'category': 'Computer Accessories', 'description': 'Portable USB flash drive with 64GB storage', 'price': 25, 'discount': 5, 'stock_quantity': 40, 'brand': 'BrandN', 'rating': 4.0, 'in_stock': True, 'img_list': ['/static/images/home_page/download.jfif']},
 ]
+
+
+if __name__ == "__main__":
+    import json
+
+    # Write to file
+    with open('data0.json', 'w') as file:
+        json.dump(products_list, file, indent=4)
