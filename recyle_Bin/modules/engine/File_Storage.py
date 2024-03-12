@@ -7,6 +7,8 @@ import json
 import uuid
 from modules.base_module import BaseModules
 from modules.product import Product
+import inspect
+DEBUG = f"File: {inspect.currentframe().f_code.co_filename}, Line: {inspect.currentframe().f_lineno}"
 
 # Mapping class names to actual class objects
 classes = {"BaseModules": BaseModules, "Product": Product}
@@ -26,7 +28,9 @@ class FileStorage:
             new_dict = {}
             # self is instance from FileStorage file_storage = FileStorage.reload()
             # which is all instances from data file cashed in for  availability of  processing on it
+            # this cashed data passed to all() method throw parameter self  when called on FileStorage
             for key, value in self.__objects.items():
+
                 if cls == value.__class__ or cls == value.__class__.__name__:
                     new_dict[key] = value
             return new_dict
@@ -48,18 +52,23 @@ class FileStorage:
         with open(self.__file_path, 'w') as f:
             json.dump(json_objects, f)
 
+
     def reload(self):
-        """Deserializes the JSON file to __objects"""
+        """deserializes the JSON file to __objects"""
+        print("alah yl3nk0]")
+        print(self.__file_path)
         try:
             with open(self.__file_path, 'r') as f:
                 jo = json.load(f)
+                print("alah yl3nk[1]")
+            print("alah yl3nk[2]")
             for key in jo:
-                class_name, obj_id = key.split('.')
-                class_obj = classes.get(class_name)
-                if class_obj:
-                    # Provide the required arguments when instantiating the class
-                    self.__objects[key] = class_obj(id=obj_id, **jo[key])
-        except FileNotFoundError:
+                print("jsObjName=>",key["nme"])
+                concern_cls = classes[jo[key]["__class__"]]
+                print(concern_cls.isAClass)
+                self.__objects[key] =concern_cls(**jo[key])
+
+        except:
             pass
 
     def delete(self, obj=None):
@@ -102,3 +111,10 @@ class FileStorage:
             count = len(self.all(cls).values())
 
         return count
+if __name__ == "__main__":
+      # Create an instance of FileStorage
+             # Call the reload method on the instance
+    fileStorage = FileStorage()
+    fileStorage.reload()
+    AllStorage = fileStorage.all(Product)
+    print(AllStorage)
