@@ -25,11 +25,13 @@ class Base(db.Model):
         """    """
         instance = self.__dict__.copy()
 
-        self.updated_at = datetime.utcnow().strftime(time)
+
     def save(self, save_option="both"):
         self.updated_at = datetime.utcnow().strftime(time)
+        self.updated_at = datetime.utcnow().strftime(time)
         if save_option in ["local", "both"]:
-            local_storage.save(self.__class__.__name__, self)
+            local_storage.add(self)
+            local_storage.commit()
         if save_option in ["DB", "both"]:
             db.session.add(self)
             db.session.commit()

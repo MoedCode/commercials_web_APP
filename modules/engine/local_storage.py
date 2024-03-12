@@ -20,12 +20,12 @@ class LocalStorage:
                 if cls  == value.__class__ or cls == value.__class__.name__:
                     new_dict[key] = value
             return new_dict
-    def new(self, Dict):
+    def add(self, Dict):
         """sets in __objects the obj with key <obj class name>.id"""
         if Dict is not None:
             key = Dict.__cls__.__name__ + "." + Dict.id
             self.__All_Dictionaries[key] = Dict
-    def save(self):
+    def commit(self):
         json_objects = {}
         for key in self.__All_Dictionaries:
             json_objects[key] = self.__All_Dictionaries[key].to_dict()
