@@ -31,7 +31,7 @@ class LocalStorage:
         with open (self.File_Path, 'r') as FILE:
             Json_Objects = json.load(FILE)
             # Json_Objects = json.dumps(Json_Objects, indent=2)
-            from StoreMain import Products, Base
+            from market import Products, Base
             classes = {"Products":Products, "Base":Base}
             for key in Json_Objects:
                 #obtaining the class for each object to re-insatiate
@@ -46,7 +46,7 @@ class LocalStorage:
     def reload(self):
         """deserializes the JSON file to __objects"""
         try:
-            from StoreMain import Products, Base
+            from market import Products, Base
             classes = {"Products":Products, "Base":Base}
             with open(self.File_Path, 'r') as f:
                 jo = json.load(f)
@@ -84,7 +84,7 @@ class LocalStorage:
         Returns the object based on the class name and its ID, or
         None if not found
         """
-        from StoreMain import Products, Base
+        from market import Products, Base
         classes = {"Products":Products, "Base":Base}
         if cls not in classes.values():
             return None
@@ -99,7 +99,7 @@ class LocalStorage:
         """
         count the number of objects in storage
         """
-        from StoreMain import Products, Base
+        from market import Products, Base
         classes = {"Products":Products, "Base":Base}
         all_class = classes.values()
 
@@ -115,7 +115,7 @@ class LocalStorage:
 
 
 if  __name__ == "__main__":
-    from StoreMain import Products
+    from market import Products
     product_data = {
     "name": "smart watch",
     "category": "Electronics",
