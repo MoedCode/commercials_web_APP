@@ -1,17 +1,134 @@
 {
-  "Product": [
-    {
-      "id": "2",
-      "created_at": "2022-03-09T13:00:00.000",
-      "updated_at": "2022-03-09T13:00:00.000",
-      "name": "Laptop"
-    }
-  ],
-  "BaseModules": [
-    {
-      "id": "3",
-      "created_at": "2022-03-09T14:00:00.000",
-      "updated_at": "2022-03-09T15:00:00.000"
-    }
-  ]
+  "Products.d0854e5a-5d66-40d3-a45c-fc6d9c65f6b2": {
+    "id": "d0854e5a-5d66-40d3-a45c-fc6d9c65f6b2",
+    "created_at": "2024-03-13T04:11:16.429985",
+    "updated_at": "2024-03-13T04:11:16.429985",
+    "name": "smart watch",
+    "category": "Electronics",
+    "brand": "Sample Brand",
+    "price": 99.99,
+    "stock_quantity": 50,
+    "rating": 4.5,
+    "discount": 10.0,
+    "In_Stock": true,
+    "barcode": "123456789",
+    "description": "This is a sample product description.",
+    "about": "More information about the sample product.",
+    "img_list": [
+      "/static/images/market/Smartwatch0.jfif",
+      "/static/images/market/Smartwatch1.jfif",
+      "/static/images/market/Smartwatch2.jfif"
+    ],
+    "__class__": "Products"
+  },
+  "Products.6e094a1e-78a1-40b2-925e-029cf3de1762": {
+    "id": "6e094a1e-78a1-40b2-925e-029cf3de1762",
+    "created_at": "2024-03-13T04:11:16.430187",
+    "updated_at": "2024-03-13T04:11:16.430187",
+    "name": "smart watch",
+    "category": "Electronics",
+    "brand": "Sample Brand",
+    "price": 99.99,
+    "stock_quantity": 50,
+    "rating": 4.5,
+    "discount": 10.0,
+    "In_Stock": true,
+    "barcode": "123456789",
+    "description": "This is a sample product description.",
+    "about": "More information about the sample product.",
+    "img_list": [
+      "/static/images/market/Smartwatch0.jfif",
+      "/static/images/market/Smartwatch1.jfif",
+      "/static/images/market/Smartwatch2.jfif"
+    ],
+    "__class__": "Products"
+  },
+  "Products.324dd861-9231-4566-831f-9c5bc636096d": {
+    "id": "324dd861-9231-4566-831f-9c5bc636096d",
+    "created_at": "2024-03-13T04:11:16.430340",
+    "updated_at": "2024-03-13T04:11:16.430340",
+    "name": "smart watch",
+    "category": "Electronics",
+    "brand": "Sample Brand",
+    "price": 99.99,
+    "stock_quantity": 50,
+    "rating": 4.5,
+    "discount": 10.0,
+    "In_Stock": true,
+    "barcode": "123456789",
+    "description": "This is a sample product description.",
+    "about": "More information about the sample product.",
+    "img_list": [
+      "/static/images/market/Smartwatch0.jfif",
+      "/static/images/market/Smartwatch1.jfif",
+      "/static/images/market/Smartwatch2.jfif"
+    ],
+    "__class__": "Products"
+  },
+  "Products.f88b24f6-beaa-454a-8232-a49e8c25bdbf": {
+    "id": "f88b24f6-beaa-454a-8232-a49e8c25bdbf",
+    "created_at": "2024-03-13T04:11:16.430476",
+    "updated_at": "2024-03-13T04:11:16.430476",
+    "name": "smart watch",
+    "category": "Electronics",
+    "brand": "Sample Brand",
+    "price": 99.99,
+    "stock_quantity": 50,
+    "rating": 4.5,
+    "discount": 10.0,
+    "In_Stock": true,
+    "barcode": "123456789",
+    "description": "This is a sample product description.",
+    "about": "More information about the sample product.",
+    "img_list": [
+      "/static/images/market/Smartwatch0.jfif",
+      "/static/images/market/Smartwatch1.jfif",
+      "/static/images/market/Smartwatch2.jfif"
+    ],
+    "__class__": "Products"
+  },
+  "Products.6b59b144-ad80-4831-8999-3dac8780687c": {
+    "id": "6b59b144-ad80-4831-8999-3dac8780687c",
+    "created_at": "2024-03-13T04:11:16.430623",
+    "updated_at": "2024-03-13T04:11:16.430623",
+    "name": "smart watch",
+    "category": "Electronics",
+    "brand": "Sample Brand",
+    "price": 99.99,
+    "stock_quantity": 50,
+    "rating": 4.5,
+    "discount": 10.0,
+    "In_Stock": true,
+    "barcode": "123456789",
+    "description": "This is a sample product description.",
+    "about": "More information about the sample product.",
+    "img_list": [
+      "/static/images/market/Smartwatch0.jfif",
+      "/static/images/market/Smartwatch1.jfif",
+      "/static/images/market/Smartwatch2.jfif"
+    ],
+    "__class__": "Products"
+  },
+  "Products.eee28e7f-5308-416e-bcf9-594932c53e01": {
+    "id": "eee28e7f-5308-416e-bcf9-594932c53e01",
+    "created_at": "2024-03-13T04:11:16.430754",
+    "updated_at": "2024-03-13T04:11:16.430754",
+    "name": "smart watch",
+    "category": "Electronics",
+    "brand": "Sample Brand",
+    "price": 99.99,
+    "stock_quantity": 50,
+    "rating": 4.5,
+    "discount": 10.0,
+    "In_Stock": true,
+    "barcode": "123456789",
+    "description": "This is a sample product description.",
+    "about": "More information about the sample product.",
+    "img_list": [
+      "/static/images/market/Smartwatch0.jfif",
+      "/static/images/market/Smartwatch1.jfif",
+      "/static/images/market/Smartwatch2.jfif"
+    ],
+    "__class__": "Products"
+  }
 }
