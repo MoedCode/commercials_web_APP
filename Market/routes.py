@@ -42,3 +42,7 @@ def product_API(product_id):
         return (product_instance.to_dict()), 200
     else:
         return jsonify({"Error":"product not found"}), 304
+
+@app.route('/about')
+def about_route():
+    return render_template('about.html')
