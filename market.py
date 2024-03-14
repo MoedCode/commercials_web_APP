@@ -2,7 +2,6 @@
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from modules import local_storage
 import uuid
 import json
 import os
@@ -45,9 +44,11 @@ class Base(db.Model):
         """returns a dictionary containing all keys/values of the instance"""
         new_dict = self.__dict__.copy()
         if "created_at" in new_dict:
-            new_dict["created_at"] = new_dict["created_at"].strftime(time)
+            # new_dict["created_at"] = new_dict["created_at"].strftime(time)
+            new_dict["created_at"] = new_dict["created_at"]
         if "updated_at" in new_dict:
-            new_dict["updated_at"] = new_dict["updated_at"].strftime(time)
+            # new_dict["updated_at"] = new_dict["updated_at"].strftime(time)
+            new_dict["updated_at"] = new_dict["updated_at"]
         new_dict["__class__"] = self.__class__.__name__
         if "_sa_instance_state" in new_dict:
             del new_dict["_sa_instance_state"]
@@ -56,6 +57,8 @@ class Base(db.Model):
     def save(self, save_option="both"):
         self.updated_at = datetime.utcnow().strftime(time)
         if save_option in ["local", "both"]:
+            from modules.engine.local_storage import LocalStorage
+            local_storage = LocalStorage()
             local_storage.add(self)
             local_storage.commit()
         if save_option in ["DB", "both"]:
@@ -64,6 +67,7 @@ class Base(db.Model):
 
 
 class Products(Base):
+    __tablename__ = 'product'
     name = db.Column(db.String(length=50), nullable=False, unique=True)
     category = db.Column(db.String(length=50), nullable=False)
     brand = db.Column(db.String(length=50), nullable=False)
@@ -109,7 +113,7 @@ class Products(Base):
 
 
 @app.route("/")
-def home():
+def home_rout():
     return render_template("home.html")
 
 
@@ -117,17 +121,18 @@ def home():
 def marketApi():
     all_products = Products.query.all()
     products_dict_list = [product.to_dict() for product in all_products]
+
     return jsonify(products_dict_list)
 
 
 @app.route('/market')
-def market():
+def market_route():
     products_list = Products.query.all()
     return render_template('market.html', products_list=products_list)
 
 
 @app.route('/product/<product_id>')
-def product(product_id):
+def product_rout(product_id):
     product_instance = Products.query.get(product_id)
     if product_instance:
         return render_template('product.html', product=product_instance)

@@ -37,7 +37,7 @@ class LocalStorage:
                 #obtaining the class for each object to re-insatiate
                 # cause we concerning with instance not json objects
                 obj_dict = Json_Objects[key]
-                cls_name =obj_dict ["__class__"]
+                cls_name =obj_dict["__class__"]
                 the_class = classes[cls_name]
                 print("{",f"cls_name:{cls_name},the_class:{the_class}", "}")
                 print("{",f"cls_name:{type(cls_name)},the_class:{type(the_class)}", "}")
@@ -48,11 +48,28 @@ class LocalStorage:
         try:
             from market import Products, Base
             classes = {"Products":Products, "Base":Base}
+            i = 0
+            print(classes.values())
+            Jason_object = []
             with open(self.File_Path, 'r') as f:
-                jo = json.load(f)
-            for key in jo:
-                print("localStorage:54")
-                self.__All_Dictionaries[key] = json.loads(jo)
+                Jason_object = json.load(f)
+                print("\n\n :: Jason_object :: >> \n\n ", Jason_object , "\n\n")
+
+                for key in Jason_object:
+                    print(key)
+                    print("localStorage:54")
+                    print(f"self all dict before {self.__All_Dictionaries}")
+                    #NOTE self.__All_Dictionaries[key] = classes[Jason_object[key]["__class__"]](**Jason_object[key])
+                    cls_name = Jason_object[key]["__class__"]
+                    print(f"cls_name :60 {cls_name}")
+                    CLASS = classes[cls_name]
+                    print(f"class :62 {CLASS}")
+                    print(f"{i +  1} -json object before instatiation \n {Jason_object[key]} ")
+                    inst_dict = CLASS(Jason_object(key))
+                    print(f" instantiated dict \n {inst_dict}")
+
+                    print(f"self all dict After {self.__All_Dictionaries}")
+
         except:
             pass
 
