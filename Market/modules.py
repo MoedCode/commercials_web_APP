@@ -1,20 +1,17 @@
-#!/usr/bin/env python3
-from flask import Flask, jsonify, render_template
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
 import uuid
 import json
-import os
-current_dir = os.path.dirname(os.path.abspath(__file__))
-database_path = os.path.join(current_dir, 'market.db')
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{database_path}'
-db = SQLAlchemy(app)
+from datetime import datetime
+from Market import db
+
+
+
+
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
-class Base(db.Model):
+class Base( db.Model):
+    __tablename__ = 'base'
     id = db.Column(db.String(length=40), nullable=False, unique=True, primary_key=True)
     created_at = db.Column(db.String(length=25), nullable=False)
     updated_at = db.Column(db.String(length=25), nullable=False)
@@ -66,8 +63,8 @@ class Base(db.Model):
             db.session.commit()
 
 
-class Products(Base):
-    __tablename__ = 'product'
+class Products(Base, db.Model):
+    __tablename__ = 'products'
     name = db.Column(db.String(length=50), nullable=False, unique=True)
     category = db.Column(db.String(length=50), nullable=False)
     brand = db.Column(db.String(length=50), nullable=False)
@@ -111,34 +108,3 @@ class Products(Base):
         new_dict["img_list"] = self.get_img_list()
         return new_dict
 
-
-@app.route("/")
-def home_rout():
-    return render_template("home.html")
-
-
-@app.route('/api/market')
-def marketApi():
-    all_products = Products.query.all()
-    products_dict_list = [product.to_dict() for product in all_products]
-
-    return jsonify(products_dict_list)
-
-
-@app.route('/market')
-def market_route():
-    products_list = Products.query.all()
-    return render_template('market.html', products_list=products_list)
-
-
-@app.route('/product/<product_id>')
-def product_rout(product_id):
-    product_instance = Products.query.get(product_id)
-    if product_instance:
-        return render_template('product.html', product=product_instance)
-    else:
-        return render_template('product_not_found.html', product_id=product_id)
-
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5005, debug=True)
