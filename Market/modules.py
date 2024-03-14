@@ -10,7 +10,7 @@ from Market import db
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
-class Base( db.Model):
+class Base():
     __tablename__ = 'base'
     id = db.Column(db.String(length=40), nullable=False, unique=True, primary_key=True)
     created_at = db.Column(db.String(length=25), nullable=False)

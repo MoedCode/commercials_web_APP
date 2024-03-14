@@ -18,8 +18,9 @@ def marketApi():
 @app.route('/market')
 def market_route():
     products_list = Products.query.all()
-    return render_template('market.html', products_list=products_list)
-
+    # Convert the Products objects to a serializable format
+    products_dict_list = [product.to_dict() for product in products_list]
+    return render_template('market.html', products_list=products_dict_list)
 
 @app.route('/product/<product_id>')
 def product_rout(product_id):

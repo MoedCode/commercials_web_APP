@@ -32,7 +32,7 @@
 
                     <!-- More Info and Purchase Buttons -->
                     <div class="buttons">
-                        <button class="btn btn-info"><a id="product_link" href="{{ url_for('product_rout', productId=product.id) }}" target="_blank">View page</a></button>
+                        <button class="btn btn-info"><a id="product_link" href="{{ url_for('product_rout', product_id=product.id) }}" target="_blank">View page</a></button>
 
                         <button class="btn btn-info" onclick="openPopup({{product.id }} )">More Info</button>
                         <button class="btn btn-success" onclick="purchaseProduct({{ product.id }})">Purchase</button>
