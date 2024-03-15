@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from Market import app, render_template, jsonify
-from Market.modules import Products
+from modules.products import Products
 import ast
 @app.route("/")
 def home_rout():
@@ -46,3 +46,8 @@ def product_API(product_id):
 @app.route('/about')
 def about_route():
     return render_template('about.html')
+@app.route("/post")
+def post_route():
+
+    return render_template("post.html")
+from modules import product_data

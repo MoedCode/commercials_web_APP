@@ -1,9 +1,13 @@
 
 from modules.base import Base
-from flask_sqlalchemy import SQLAlchemy
+from Market import db
 import uuid
 
-class Products(Base):
+
+
+
+class Products(Base, db.Model):
+    __tablename__ = 'products'
     name = db.Column(db.String(length=50), nullable=False, unique=True)
     category = db.Column(db.String(length=50), nullable=False)
     brand = db.Column(db.String(length=50), nullable=False)
