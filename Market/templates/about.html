@@ -1,15 +1,78 @@
 {% extends 'base.html' %}
 
-{% block title %}Welcome to ProCode Coding Market{% endblock %}
+{% block title %}Welcome to ProMarket{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-8 mx-auto text-center">
-            <h1>Welcome to ProCode Coding Market</h1>
-            <p class="lead">Your one-stop destination for discovering amazing coding resources!</p>
-            <a href="{{ url_for('market_route') }}" class="btn btn-primary btn-lg">Explore Now</a>
+<link rel="stylesheet" href="../static/styles/about.css">
+<div class="container-fluid">
+    <!-- Intro section -->
+
+    <section id="intro" class="py-5 text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="display-4 mb-4">Welcome to ProMarket</h1>
+                <p class="lead">Your one-stop destination for all your shopping needs!</p>
+                <a href="{{ url_for('market_route') }}" class="btn btn-primary btn-lg mt-3">Explore Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../static/images/about/Designer.png" class="card-img-top" alt="Feature 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Convenient Shopping</h5>
+                            <p class="card-text">Shop for groceries, household items, electronics, and more, all in one place.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../static/images/about/Designer1.png" class="card-img-top" alt="Feature 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Quality Products</h5>
+                            <p class="card-text">Discover a wide range of high-quality products from trusted brands.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../static/images/about/Designer2.png" class="card-img-top" alt="Feature 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Excellent Customer Service</h5>
+                            <p class="card-text">Our dedicated team is here to assist you and ensure a pleasant shopping experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+<!-- About Section -->
+<section id="about" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="color: black;">
+                <h2 class="text-center mb-4" style="color: black;">About ProMarket</h2>
+                <p style="color: black;">ProMarket is inspired by my vision of providing customers with a convenient and enjoyable shopping experience. As a Portfolio Project for Holberton School, ProMarket aims to redefine the way people shop for everyday essentials.</p>
+                <p style="color: black;">I am committed to delivering top-notch service and ensuring that customers find everything they need at ProMarket. With a user-friendly platform, a wide selection of quality products, and excellent customer support, ProMarket strives to become your go-to destination for all your shopping needs.</p>
+                <p style="color: black;">Visit our <a href="{{ url_for('market_route') }}">Market</a> now to start exploring our offerings!</p>
+                <div class="text-center mt-4">
+                    <a href="https://github.com/MoedCode/commercials_web_APP" class="btn btn-primary mr-3" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/feed/" class="btn btn-primary" target="_blank">LinkedIn</a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
+<style>
+    body{
+        color: black;
+    }
+</style>
 {% endblock %}

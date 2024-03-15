@@ -1,0 +1,9 @@
+img{
+    margin: auto;
+    width: 90%;
+    height: 60%;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
