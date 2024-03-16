@@ -20,6 +20,7 @@ class Products(Base, db.Model):
     description = db.Column(db.String(length=1024), nullable=False, unique=True)
     about = db.Column(db.String(length=2048), nullable=True)
     img_list = db.Column(db.String(length=4096), nullable=False, default="")
+    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __init__(self, name, category, brand, price, stock_quantity=0, rating=None, discount=None, In_Stock=None,
                  barcode=None, description=None, img_list=None, about=None):
