@@ -10,6 +10,8 @@ def home_rout():
 
 @app.route('/api/market')
 def marketApi():
+    from modules.products import Products
+
     all_products = Products.query.all()
     products_dict_list = [product.to_dict() for product in all_products]
 
