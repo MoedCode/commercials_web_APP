@@ -1,23 +1,19 @@
 #!/usr/bin/env python3
-
+from Market import db
 from datetime import datetime
 import uuid
-from Market import session, Column, String, Float,Integer ,Boolean, ForeignKey, DateTime, dec_base
 
-from datetime import datetime
 
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
-class Base:
-
+class Base():
     __tablename__ = 'base'
-    id = Column(String(length=40), nullable=False, unique=True, primary_key=True)
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
-    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
-    # relation base class and Products as Products(Base)
-    # products = relationship("Products", back_populates="base")
+    id = db.Column(db.String(length=40), nullable=False, unique=True, primary_key=True)
+    created_at = db.Column(db.String(length=25), nullable=False)
+    updated_at = db.Column(db.String(length=25), nullable=False)
+
     def __init__(self, *args, **kwargs):
         """Initialization of the base model"""
         if kwargs:
@@ -61,7 +57,6 @@ class Base:
             local_storage.add(self)
             local_storage.commit()
         if save_option in ["DB", "both"]:
-            session.add(self)
-            session.commit()
-
+            db.session.add(self)
+            db.session.commit()
 

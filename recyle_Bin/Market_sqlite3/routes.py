@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-from Market import app, render_template, jsonify, session
-
+from Market import app, render_template, jsonify
 import ast
 
 
@@ -13,7 +12,7 @@ def home_rout():
 def marketApi():
     from modules.products import Products
 
-    all_products = session.query(Products).all()
+    all_products = Products.query.all()
     products_dict_list = [product.to_dict() for product in all_products]
 
     return jsonify(products_dict_list)
@@ -23,7 +22,7 @@ def marketApi():
 def market_route():
     from modules.products import Products
 
-    products_list = session.query(Products).all()
+    products_list = Products.query.all()
     # Convert the Products objects to a serializable format
     products_dict_list = [product.to_dict() for product in products_list]
     return render_template('market.html', products_list=products_dict_list)
@@ -33,7 +32,7 @@ def market_route():
 def product_rout(product_id):
     from modules.products import Products
 
-    product_instance = session.query(Products).get(product_id)
+    product_instance = Products.query.get(product_id)
     if product_instance:
         # Convert the string back to a list of image paths
         product_instance.img_list = product_instance.img_list.split(',')
@@ -45,7 +44,7 @@ def product_rout(product_id):
 def product_API(product_id):
     from modules.products import Products
 
-    product_instance = session.query(Products).get(product_id)
+    product_instance = Products.query.get(product_id)
 
     if product_instance:
         print(product_instance.to_dict())

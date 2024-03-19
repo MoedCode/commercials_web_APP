@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+      <title> ProMarket </title>
+   </head>
+   <body>
+      <!-- Navbar here -->
+      <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">ProMarket</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/market">Market</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Register</a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+        <br><br><h2 class="under-construction"> Website Under Construction 😎</h2><br><br>
+        
+<link rel="stylesheet" href="../static/styles/market.css">
+<!-- Product Section with Scroll -->
+<div class="products-section">
+    <div class="products-grid">
+        <!-- Product Cards -->
+        
+            <div class="product-card">
+                <img src="/static/images/market/Smartwatch0.jfif" alt="Product Image" class="product-image">
+                <div class="product-info">
+                    <h3>1</h3>
+                    <p><strong>Name:</strong> smart watch</p>
+                    <p><strong>Brand:</strong> Sample Brand</p>
+                    <p><strong>Discount:</strong> 10.0</p>
+
+                    <!-- <p><strong>ID:</strong> 3a65171c-df3b-42a9-b57b-14363f37ddbc</p>
+                    <p><strong>Barcode:</strong> 123456789</p>
+                    <p><strong>Category:</strong> Electronics</p>
+                    <p><strong>Description:</strong> This is a sample product description.</p>
+                    <p><strong>Price:</strong> 99.99</p>
+                    <p><strong>Stock Quantity:</strong> 50</p>
+                    <p><strong>Rating:</strong> 4.5</p>
+                    <p><strong>In Stock:</strong> </p> -->
+
+                    <!-- More Info and Purchase Buttons -->
+                    <div class="buttons">
+                        <button class="btn btn-info"><a id="product_link" href="/product/3a65171c-df3b-42a9-b57b-14363f37ddbc" target="_blank">View page</a></button>
+
+                        <button class="btn btn-info" onclick="openPopup(3a65171c-df3b-42a9-b57b-14363f37ddbc )">More Info</button>
+                        <button class="btn btn-success" onclick="purchaseProduct(3a65171c-df3b-42a9-b57b-14363f37ddbc)">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="product-card">
+                <img src="/static/images/market/Smartwatch0.jfif" alt="Product Image" class="product-image">
+                <div class="product-info">
+                    <h3>2</h3>
+                    <p><strong>Name:</strong> smart_watch2</p>
+                    <p><strong>Brand:</strong> Sample Brand</p>
+                    <p><strong>Discount:</strong> 10.0</p>
+
+                    <!-- <p><strong>ID:</strong> 1ae5b3ea-1777-494e-964f-f9f41fead729</p>
+                    <p><strong>Barcode:</strong> 85196fd3-1479-4903-a51b-e4e82dec14a7</p>
+                    <p><strong>Category:</strong> Electronics</p>
+                    <p><strong>Description:</strong>  dsfsdfs sdf fds fds f smart_watch2</p>
+                    <p><strong>Price:</strong> 99.99</p>
+                    <p><strong>Stock Quantity:</strong> 50</p>
+                    <p><strong>Rating:</strong> 4.5</p>
+                    <p><strong>In Stock:</strong> </p> -->
+
+                    <!-- More Info and Purchase Buttons -->
+                    <div class="buttons">
+                        <button class="btn btn-info"><a id="product_link" href="/product/1ae5b3ea-1777-494e-964f-f9f41fead729" target="_blank">View page</a></button>
+
+                        <button class="btn btn-info" onclick="openPopup(1ae5b3ea-1777-494e-964f-f9f41fead729 )">More Info</button>
+                        <button class="btn btn-success" onclick="purchaseProduct(1ae5b3ea-1777-494e-964f-f9f41fead729)">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="product-card">
+                <img src="/static/images/market/nokia_10_pureview.jfif" alt="Product Image" class="product-image">
+                <div class="product-info">
+                    <h3>3</h3>
+                    <p><strong>Name:</strong> nokia 10 pureView</p>
+                    <p><strong>Brand:</strong> Nokia</p>
+                    <p><strong>Discount:</strong> 10.0</p>
+
+                    <!-- <p><strong>ID:</strong> c2179338-04fc-4c47-bcd7-123608dc9ea2</p>
+                    <p><strong>Barcode:</strong> 8dae13ae-7fed-4bc9-95a5-45351558c95f</p>
+                    <p><strong>Category:</strong> Electronics - smart phones </p>
+                    <p><strong>Description:</strong> Summary Nokia 10 PureView ram 8 GB camera 16 MP + 8 MP + 12 MP +12 MP display 6.1 inches (15.49 cm) performance Qualcomm Snapdragon 875 storage 128 GB battery 4000 mAh</p>
+                    <p><strong>Price:</strong> 99.99</p>
+                    <p><strong>Stock Quantity:</strong> 50</p>
+                    <p><strong>Rating:</strong> 4.5</p>
+                    <p><strong>In Stock:</strong> </p> -->
+
+                    <!-- More Info and Purchase Buttons -->
+                    <div class="buttons">
+                        <button class="btn btn-info"><a id="product_link" href="/product/c2179338-04fc-4c47-bcd7-123608dc9ea2" target="_blank">View page</a></button>
+
+                        <button class="btn btn-info" onclick="openPopup(c2179338-04fc-4c47-bcd7-123608dc9ea2 )">More Info</button>
+                        <button class="btn btn-success" onclick="purchaseProduct(c2179338-04fc-4c47-bcd7-123608dc9ea2)">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="product-card">
+                <img src="/static/images/market/nokia_10_pureview.jfif" alt="Product Image" class="product-image">
+                <div class="product-info">
+                    <h3>4</h3>
+                    <p><strong>Name:</strong> nokia 10 pureView pro</p>
+                    <p><strong>Brand:</strong> Nokia</p>
+                    <p><strong>Discount:</strong> 10.0</p>
+
+                    <!-- <p><strong>ID:</strong> 73473d9e-72a0-460e-b1c8-54051c92fd00</p>
+                    <p><strong>Barcode:</strong> 454ac781-2367-4d7d-afd6-ebdff8219900</p>
+                    <p><strong>Category:</strong> Electronics - smart phones </p>
+                    <p><strong>Description:</strong> Summary Nokia 10 PureView ram 12 GB camera 32 MP + 16 MP + 12 MP +12 MP display 6.1 inches (15.49 cm) performance Qualcomm Snapdragon 875 storage 128 GB battery 6000 mAh</p>
+                    <p><strong>Price:</strong> 99.99</p>
+                    <p><strong>Stock Quantity:</strong> 50</p>
+                    <p><strong>Rating:</strong> 4.5</p>
+                    <p><strong>In Stock:</strong> </p> -->
+
+                    <!-- More Info and Purchase Buttons -->
+                    <div class="buttons">
+                        <button class="btn btn-info"><a id="product_link" href="/product/73473d9e-72a0-460e-b1c8-54051c92fd00" target="_blank">View page</a></button>
+
+                        <button class="btn btn-info" onclick="openPopup(73473d9e-72a0-460e-b1c8-54051c92fd00 )">More Info</button>
+                        <button class="btn btn-success" onclick="purchaseProduct(73473d9e-72a0-460e-b1c8-54051c92fd00)">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="product-card">
+                <img src="/static/images/market/nokia_10_pureview.jfif" alt="Product Image" class="product-image">
+                <div class="product-info">
+                    <h3>5</h3>
+                    <p><strong>Name:</strong> test</p>
+                    <p><strong>Brand:</strong> Nokia</p>
+                    <p><strong>Discount:</strong> 10.0</p>
+
+                    <!-- <p><strong>ID:</strong> 7e61cd75-de99-4785-bc23-16b4e66fee34</p>
+                    <p><strong>Barcode:</strong> 30d8808b-be99-4a3a-9f85-12a6ceb50c01</p>
+                    <p><strong>Category:</strong> Electronics - smart phones </p>
+                    <p><strong>Description:</strong> test</p>
+                    <p><strong>Price:</strong> 99.99</p>
+                    <p><strong>Stock Quantity:</strong> 50</p>
+                    <p><strong>Rating:</strong> 4.5</p>
+                    <p><strong>In Stock:</strong> </p> -->
+
+                    <!-- More Info and Purchase Buttons -->
+                    <div class="buttons">
+                        <button class="btn btn-info"><a id="product_link" href="/product/7e61cd75-de99-4785-bc23-16b4e66fee34" target="_blank">View page</a></button>
+
+                        <button class="btn btn-info" onclick="openPopup(7e61cd75-de99-4785-bc23-16b4e66fee34 )">More Info</button>
+                        <button class="btn btn-success" onclick="purchaseProduct(7e61cd75-de99-4785-bc23-16b4e66fee34)">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="product-card">
+                <img src="/Market/static/images/market/pc_all_in_one0.jfif" alt="Product Image" class="product-image">
+                <div class="product-info">
+                    <h3>6</h3>
+                    <p><strong>Name:</strong> pc_all_in_one-proX6 </p>
+                    <p><strong>Brand:</strong> FujiTsu</p>
+                    <p><strong>Discount:</strong> 10.0</p>
+
+                    <!-- <p><strong>ID:</strong> c9b3acdd-32a2-4668-9d50-1f453d30f7fe</p>
+                    <p><strong>Barcode:</strong> 814a17e8-901d-4170-b338-c186fe403554</p>
+                    <p><strong>Category:</strong> Electronics - pc_all_in_one </p>
+                    <p><strong>Description:</strong> pc_all_in_one 10 PureView ram 64 GB camera 16 MP + 8 MP + 12 MP +12 MP display 60.1 inches (15.49 cm) performance Qualcomm Snapdragon 875 storage 1 TB ssd 4TB HDD </p>
+                    <p><strong>Price:</strong> 99.99</p>
+                    <p><strong>Stock Quantity:</strong> 50</p>
+                    <p><strong>Rating:</strong> 4.5</p>
+                    <p><strong>In Stock:</strong> </p> -->
+
+                    <!-- More Info and Purchase Buttons -->
+                    <div class="buttons">
+                        <button class="btn btn-info"><a id="product_link" href="/product/c9b3acdd-32a2-4668-9d50-1f453d30f7fe" target="_blank">View page</a></button>
+
+                        <button class="btn btn-info" onclick="openPopup(c9b3acdd-32a2-4668-9d50-1f453d30f7fe )">More Info</button>
+                        <button class="btn btn-success" onclick="purchaseProduct(c9b3acdd-32a2-4668-9d50-1f453d30f7fe)">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="product-card">
+                <img src="/Market/static/images/market/pc_all_in_one0.jfif" alt="Product Image" class="product-image">
+                <div class="product-info">
+                    <h3>7</h3>
+                    <p><strong>Name:</strong> pc_all_in_one-Altra24 </p>
+                    <p><strong>Brand:</strong> Toshiba</p>
+                    <p><strong>Discount:</strong> 10.0</p>
+
+                    <!-- <p><strong>ID:</strong> dfec87a8-8fcc-4e76-b127-f4895b1ba3d6</p>
+                    <p><strong>Barcode:</strong> e91bad42-19f6-4cfc-8f18-fcac84cc40e0</p>
+                    <p><strong>Category:</strong> Electronics - pc_all_in_one </p>
+                    <p><strong>Description:</strong> pc_all_in_one-Altra24 PureView ram 64 GB camera 16 MP + 8 MP + 12 MP +12 MP display 60.1 inches (15.49 cm) performance Qualcomm Snapdragon 875 storage 1 TB ssd 4TB HDD </p>
+                    <p><strong>Price:</strong> 150.0</p>
+                    <p><strong>Stock Quantity:</strong> 50</p>
+                    <p><strong>Rating:</strong> 4.5</p>
+                    <p><strong>In Stock:</strong> </p> -->
+
+                    <!-- More Info and Purchase Buttons -->
+                    <div class="buttons">
+                        <button class="btn btn-info"><a id="product_link" href="/product/dfec87a8-8fcc-4e76-b127-f4895b1ba3d6" target="_blank">View page</a></button>
+
+                        <button class="btn btn-info" onclick="openPopup(dfec87a8-8fcc-4e76-b127-f4895b1ba3d6 )">More Info</button>
+                        <button class="btn btn-success" onclick="purchaseProduct(dfec87a8-8fcc-4e76-b127-f4895b1ba3d6)">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+<!-- Your custom script for handling More Info and Purchase buttons -->
+<!-- Product Details Modal -->
+<div class="popup" id="myPopup">
+    <div class="popup-content">
+        <div id="productDetails"></div>
+    </div>
+</div>
+
+
+
+<!-- Your custom script for handling More Info and Purchase buttons -->
+<script>
+    // Pass the products_list from Flask to JavaScript
+    const productsList = [{"In_Stock": true, "__class__": "Products", "about": "More information about the sample product.", "barcode": "123456789", "brand": "Sample Brand", "category": "Electronics", "created_at": "2024-03-13 06:30:31.455046", "description": "This is a sample product description.", "discount": 10.0, "id": "3a65171c-df3b-42a9-b57b-14363f37ddbc", "img_list": ["/static/images/market/Smartwatch0.jfif", "/static/images/market/Smartwatch1.jfif", "/static/images/market/Smartwatch2.jfif"], "name": "smart watch", "price": 99.99, "rating": 4.5, "stock_quantity": 50, "updated_at": "2024-03-13 06:30:31.455046"}, {"In_Stock": true, "__class__": "Products", "about": "More information about the sample product.", "barcode": "85196fd3-1479-4903-a51b-e4e82dec14a7", "brand": "Sample Brand", "category": "Electronics", "created_at": "2024-03-13 23:59:34.271990", "description": " dsfsdfs sdf fds fds f smart_watch2", "discount": 10.0, "id": "1ae5b3ea-1777-494e-964f-f9f41fead729", "img_list": ["/static/images/market/Smartwatch0.jfif", "/static/images/market/Smartwatch1.jfif", "/static/images/market/Smartwatch2.jfif"], "name": "smart_watch2", "price": 99.99, "rating": 4.5, "stock_quantity": 50, "updated_at": "2024-03-14T00:00:08.995553"}, {"In_Stock": true, "__class__": "Products", "about": "More information about the sample product.", "barcode": "8dae13ae-7fed-4bc9-95a5-45351558c95f", "brand": "Nokia", "category": "Electronics - smart phones ", "created_at": "2024-03-14 02:30:21.678060", "description": "Summary Nokia 10 PureView ram 8 GB camera 16 MP + 8 MP + 12 MP +12 MP display 6.1 inches (15.49 cm) performance Qualcomm Snapdragon 875 storage 128 GB battery 4000 mAh", "discount": 10.0, "id": "c2179338-04fc-4c47-bcd7-123608dc9ea2", "img_list": ["/static/images/market/nokia_10_pureview.jfif", "/static/images/market/nokia_10_pureview.jfif"], "name": "nokia 10 pureView", "price": 99.99, "rating": 4.5, "stock_quantity": 50, "updated_at": "2024-03-14T02:30:21.678357"}, {"In_Stock": true, "__class__": "Products", "about": "More information about the sample product.", "barcode": "454ac781-2367-4d7d-afd6-ebdff8219900", "brand": "Nokia", "category": "Electronics - smart phones ", "created_at": "2024-03-14 06:02:06.905064", "description": "Summary Nokia 10 PureView ram 12 GB camera 32 MP + 16 MP + 12 MP +12 MP display 6.1 inches (15.49 cm) performance Qualcomm Snapdragon 875 storage 128 GB battery 6000 mAh", "discount": 10.0, "id": "73473d9e-72a0-460e-b1c8-54051c92fd00", "img_list": ["/static/images/market/nokia_10_pureview.jfif", "/static/images/market/nokia_10_pureview.jfif"], "name": "nokia 10 pureView pro", "price": 99.99, "rating": 4.5, "stock_quantity": 50, "updated_at": "2024-03-14T06:02:06.905194"}, {"In_Stock": true, "__class__": "Products", "about": "More information about the sample product.", "barcode": "30d8808b-be99-4a3a-9f85-12a6ceb50c01", "brand": "Nokia", "category": "Electronics - smart phones ", "created_at": "2024-03-14 08:45:12.442926", "description": "test", "discount": 10.0, "id": "7e61cd75-de99-4785-bc23-16b4e66fee34", "img_list": ["/static/images/market/nokia_10_pureview.jfif", "/static/images/market/nokia_10_pureview.jfif"], "name": "test", "price": 99.99, "rating": 4.5, "stock_quantity": 50, "updated_at": "2024-03-14T08:45:12.442998"}, {"In_Stock": true, "__class__": "Products", "about": "More information about the sample product.", "barcode": "814a17e8-901d-4170-b338-c186fe403554", "brand": "FujiTsu", "category": "Electronics - pc_all_in_one ", "created_at": "2024-03-18 15:26:03.140065", "description": "pc_all_in_one 10 PureView ram 64 GB camera 16 MP + 8 MP + 12 MP +12 MP display 60.1 inches (15.49 cm) performance Qualcomm Snapdragon 875 storage 1 TB ssd 4TB HDD ", "discount": 10.0, "id": "c9b3acdd-32a2-4668-9d50-1f453d30f7fe", "img_list": ["/Market/static/images/market/pc_all_in_one0.jfif", "/Market/static/images/market/pc_all_in_one1.jfif", "/Market/static/images/market/pc_all_in_one2.jfif"], "name": "pc_all_in_one-proX6 ", "price": 99.99, "rating": 4.5, "stock_quantity": 50, "updated_at": "2024-03-18T15:26:03.142277"}, {"In_Stock": true, "__class__": "Products", "about": "More information about the sample product.", "barcode": "e91bad42-19f6-4cfc-8f18-fcac84cc40e0", "brand": "Toshiba", "category": "Electronics - pc_all_in_one ", "created_at": "2024-03-18 15:31:58.160715", "description": "pc_all_in_one-Altra24 PureView ram 64 GB camera 16 MP + 8 MP + 12 MP +12 MP display 60.1 inches (15.49 cm) performance Qualcomm Snapdragon 875 storage 1 TB ssd 4TB HDD ", "discount": 10.0, "id": "dfec87a8-8fcc-4e76-b127-f4895b1ba3d6", "img_list": ["/Market/static/images/market/pc_all_in_one0.jfif", "/Market/static/images/market/pc_all_in_one1.jfif", "/Market/static/images/market/pc_all_in_one2.jfif"], "name": "pc_all_in_one-Altra24 ", "price": 150.0, "rating": 4.5, "stock_quantity": 50, "updated_at": "2024-03-18T15:31:58.162160"}];
+    let product_ = "";
+    let purchTtn = "", viewPtn = "";
+    let backPtn = `
+    <button  class="btn btn-info" onclick="goBack()"><a href="/market">Market</a></button>
+    `;
+
+    function openPopup(productId) {
+        console.log(typeof productId);
+
+        let product = {};
+        for (const productObj of productsList) {
+            if (productObj.id == productId) {
+                product = productObj;
+                console.log(productObj);
+            }
+        }
+
+        // Update the popup content with product details
+        product_ = `
+            <div class="product-card-0">
+            <button id="close0" onclick="closePopup()"> X</button>
+            <h3>${product.name}</h3>
+            <img src="${product.img_list[0]}" alt="Product Image" class="popup-image">
+            <p><strong>Category:</strong> ${product.category}</p>
+            <p><strong>Description:</strong> ${product.description}</p>
+            <p><strong>Price:</strong> ${product.price}</p>
+            <p><strong>Discount:</strong> ${product.discount}</p>
+            <p><strong>Brand:</strong> ${product.brand}</p>
+            <p><strong>Rating:</strong> ${product.rating}</p>
+            <p><strong>In Stock:</strong> ${product.in_stock}</p>
+            <p><strong>ID:</strong> ${product.id}</p>
+            <p><strong>Barcode:</strong> ${product.barcode}</p>
+        </div>`;
+
+        purchTtn = `
+        <button class="btn btn-success" onclick="purchaseProduct(${product.id})">Purchase</button>
+        `;
+
+        viewPtn = `
+        <button class="btn btn-info"><a id="product_link" href='/product/${product.id}' target="_blank">View page</a></button>
+        `;
+
+        document.getElementById('myPopup').innerHTML = product_ + purchTtn + viewPtn;
+
+        // Display the popup
+        document.getElementById('myPopup').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('myPopup').style.display = 'none';
+    }
+
+    function goBack() {
+        // Use the history object to navigate back
+        window.history.back();
+    }
+
+    // Close the popup if the user clicks outside of it
+    window.onclick = function (event) {
+        var popup = document.getElementById('myPopup');
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    }
+</script>
+
+
+    </header>
+
+    <!-- Website Under Construction Message -->
+
+
+      <!-- Future Content here -->
+
+
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+   </body>
+   <style>
+      body {
+      background-color: #212121;
+      color: white
+      }
+   </style>
+</html>
