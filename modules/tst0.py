@@ -6,18 +6,23 @@ import os
 if __name__ == "__main__":
     # List of product data for each image
     products_list = [
-        {
-        "name": name,
-        "category": category,
-        "brand": "Your Brand",
-        "price": 0.0,  # Set the price accordingly
-        "stock_quantity": 0,  # Set the stock quantity accordingly
-        "rating": 0.0,  # Set the rating accordingly
-        "discount": 0.0,  # Set the discount accordingly
-        "in_stock": True,  # Set the in_stock flag accordingly
-        "description": f"Description for {name} product.",
+    {
+        "name": "FujiTsupc_all_in_one",
+        "category": "Electronics - pc_all_in_one ",
+        "brand": "FujiTsu",
+        "price": 9000.0,
+        "stock_quantity": 50,
+        "rating": 4.5,
+        "discount": 10.0,
+        "in_stock": True,  # Change this key to "in_stock"
+        "description": "FujiTsupc_all_in_one ram 64 GB camera 16 MP  display 60 inches (15.49 cm) performance RZION9 1 TB SSD 4 TB HDD",
         "about": "More information about the sample product.",
-        "img_list": [f"/static/images/market/{image_name}"]
+        "img_list": [
+            "/static/images/market/pc_all_in_one0.jfif",
+            "/static/images/market/pc_all_in_one1.jfif",
+            "/static/images/market/pc_all_in_one2.jfif",
+
+        ]
     },
         {
             "name": "Apple Watch Series 8",

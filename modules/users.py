@@ -1,24 +1,37 @@
 #!/usr/bin/env python3
-from Market import db
+
 from modules.base import Base
 from modules.products import Products
+from Market import session, Column, String, Float,Integer ,Boolean, ForeignKey, DateTime, dec_base
+
 import re
 
-class Users(Base, db.Model):
+class Users(Base, dec_base):
     __tablename__ = "users"
 
     # Define columns with validation in setters
-    first_name = db.Column(db.String(128), nullable=True)
-    last_name = db.Column(db.String(128), nullable=True)
-    nickname = db.Column(db.String(128), nullable=True)
-    email = db.Column(db.String(128), nullable=False)
-    password = db.Column(db.String(128), nullable=False)
-    budget = db.Column(db.Integer(), nullable=False, default=5000)
-    image = db.Column(db.String(150), nullable=True)
-    product = db.relationship('Products', backref="Owner", lazy=True)
+    first_name = Column(String(128), nullable=True)
+    last_name = Column(String(128), nullable=True)
+    nickname = Column(String(128), nullable=True)
+    email = Column(String(128), nullable=False)
+    password = Column(String(128), nullable=False)
+    budget = Column(Integer(), nullable=False, default=5000)
+    image = Column(String(150), nullable=True)
+    # product = relationship('Products', backref="Owner", lazy=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        if args and len(args) >= 2:
+            self.email = args[0]
+            self.password = args[1]
+            self.first_name = args[2] if len(args) >= 3 else None
+            self.last_name = args[3] if len(args) >= 4 else None
+            self.nickname = args[4] if len(args) >= 5 else None
+            self.budget = args[5] if len(args) >= 6 else None
+
+        else:
+            print(f"{__class__.__name__} missing arguments")
+
 
     # Define setters with validation for each attribute
     @property
@@ -85,6 +98,7 @@ class Users(Base, db.Model):
 
     @password.setter
     def password(self, value):
+
         if not isinstance(value, str):
             raise ValueError("Password must be a string")
         self._password = value
@@ -95,6 +109,8 @@ class Users(Base, db.Model):
 
     @budget.setter
     def budget(self, value):
+        if value is None:
+            value = 5000
         if not isinstance(value, int):
             raise ValueError("Budget must be an integer")
         self._budget = value
@@ -114,20 +130,23 @@ class Users(Base, db.Model):
 
 if __name__ == "__main__":
     # Valid email
-    valid_email = "user@gmail.com"
-    # Invalid email with an unsupported domain
-    invalid_email = "user@example.com"
+    def test():
+        valid_email = "user@gmail.com"
+        # Invalid email with an unsupported domain
+        invalid_email = "user@example.com"
 
-    try:
-        # Creating a user with a valid email
-        user1 = Users(email=valid_email)
-        print("User created successfully with valid email:", user1.email)
-    except ValueError as e:
-        print("Error creating user:", e)
+        try:
+            # Creating a user with a valid email
+            user1 = Users(email=valid_email)
+            print("User created successfully with valid email:", user1.email)
+        except ValueError as e:
+            print("Error creating user:", e)
 
-    try:
-        # Attempting to create a user with an invalid email
-        user2 = Users(email=invalid_email)
-        print("User created successfully with invalid email:", user2.email)
-    except ValueError as e:
-        print("Error creating user:", e)
+        try:
+            # Attempting to create a user with an invalid email
+            user2 = Users(email=invalid_email)
+            print("User created successfully with invalid email:", user2.email)
+        except ValueError as e:
+            print("Error creating user:", e)
+    x = Users("user@gmail.com", "First0", "last0", "PWD0")
+    print(x.to_dict())
