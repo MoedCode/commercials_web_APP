@@ -17,9 +17,9 @@ view product
         <!-- Product Images -->
         <div class="col-md-6 images-container">
             <div class="product-images">
-               <p> {{ product.img_list }} </p>
+               <!-- <p> {{ product.img_list }} </p> -->
                 {% for Pimg in product.img_list %}
-                {{ Pimg }}
+                <!-- {{ Pimg }} -->
                     <img src="../{{ Pimg }}" alt="Product Image" class="product-image">
                 {% endfor %}
             </div>

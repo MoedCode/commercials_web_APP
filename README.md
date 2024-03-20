@@ -80,6 +80,7 @@ commercials_web_APP/
 │   │   ├── product.html
 │   │   └── product_not_found.html
 │   ├── __init__.py
+|   |__run.py
 │   ├── modules.py
 │   └── routes.py
 ├── README.md
@@ -87,11 +88,14 @@ commercials_web_APP/
 ├── run.py
 └── market.db
 ```
-
+# database
+is  MySQL i use it mysqlalchemy python framework
+and  while the website not completed yet database will be accessed  from localhost
+when the project is done it will MySQL database  accessed remotely  on one of the remote servers
 - `Market/`: Contains the Flask application code.
 - `static/`: Directory for static files such as images and stylesheets.
 - `templates/`: Contains HTML templates for rendering pages.
-- `market.db`: SQLite database file.
+-
 - `README.md`: Project documentation.
 - `requirements.txt`: List of Python dependencies.
 - `run.py`: Script to run the Flask application.
@@ -105,5 +109,3 @@ Contributions to the Commercial Web Application are highly appreciated! If you e
 This project is licensed under the [MIT License](LICENSE).
 
 ---
-
-This enhanced README.md template provides clearer instructions and a more engaging description of the project. Feel free to use it as-is or customize it further to suit your preferences. Let me know if you need any further modifications or assistance!
