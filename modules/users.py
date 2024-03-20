@@ -33,8 +33,8 @@ class Users(Base, dec_base):
                 print(f"{__class__.__name__} to much arguments\n{this}")
                 exit(-1)
 
-            self.__email = self._validate_email(args[0])
-            self.__password = self._validate_password(args[1])
+            self.email = self._validate_email(args[0])
+            self.password = self._validate_password(args[1])
             self.first_name = self._validate_name(args[2] if len(args) >= 3 else None)
             self.last_name = self._validate_name(args[3] if len(args) >= 4 else None)
             self.nickname = self._validate_name(args[4] if len(args) >= 5 else None)
@@ -46,8 +46,8 @@ class Users(Base, dec_base):
                     print(f"{__class__.__name__} :: unknown {key} \n{this}")
                     exit(-2)
 
-            self.__email = self._validate_email(kwargs["email"])
-            self.__password = self._validate_password(kwargs["password"])
+            self.email = self._validate_email(kwargs["email"])
+            self.password = self._validate_password(kwargs["password"])
             self.first_name = self._validate_name(kwargs["first_name"] if hasattr(kwargs, "first_name") else None)
             self.last_name = self._validate_name(kwargs["last_name"] if hasattr(kwargs, "first_name") else None)
             self.nickname = self._validate_name(kwargs["nickname"] if hasattr(kwargs, "nickname") else None)
@@ -127,7 +127,7 @@ class Users(Base, dec_base):
 
 
         self._email = value
-    '''
+
     @property
     def password(self):
         return self._password
@@ -153,7 +153,7 @@ class Users(Base, dec_base):
     def image(self, value):
 
         self._image = value
-
+'''
 if __name__ == "__main__":
     # Valid email
     def test():
@@ -175,15 +175,15 @@ if __name__ == "__main__":
         except ValueError as e:
             print("Error creating user:", e)
     # x = Users(email="user0@gmail.com", password="PWD0",first_name="First0", last_name="last0" )
-    x0 = Users("user0@gmail.com","mIzoZn@l5",0x500, "last0" )
-    x1 = Users(email="user0@gmail.com",password="mIzoZn@l5",first_name=0x500, last_name="last0" )
+    x0 = Users("user0@gmail.com","mIzoZn@l5","0x500", "last0" )
+    x1 = Users(email="user0@gmail.com",password="mIzoZn@l5",first_name="0x500", last_name="last0" )
 
-    # x.save("DB")
+    x0.save("DB")
     print(x0.to_dict())
-    print()
-    print()
-    print(x1.to_dict())
-    print()
-    print()
-    print(x0.__password)
-    print(x1.__password)
+    # print()
+    # print()
+    # print(x1.to_dict())
+    # print()
+    # print()
+    # print(x0.__password)
+    # print(x1.__password)
