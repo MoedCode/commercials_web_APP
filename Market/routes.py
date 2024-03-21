@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from Market import app, render_template, jsonify, session
+from Market import app, render_template, jsonify, session, redirect, make_response, request, abort, json
 
 import ast
 
@@ -60,4 +60,46 @@ def about_route():
 def post_route():
 
     return render_template("post.html")
-from modules import product_data
+
+# Authentication  Routes
+
+@app.route("/login")
+def login_route():
+
+    return render_template("login.html")
+
+@app.route("/register")
+def register_route():
+
+    return render_template("register.html")
+
+
+@app.route("/post_user", methods=["POST"])
+def post_user():
+
+    with open ("tmp1.md", "w") as FILE:
+        FILE.write(f"# {request.url}\n{request.get_json()}\n")
+    if "image" in request.files:
+        image_file = request.files["image"]
+        print(image_file)
+        image_file.save("/Market/static/images/users")
+    with open ("tmp1.md", "a") as FILE:
+        FILE.write(f"image_received\n{request.files}\n")
+
+    from modules.users import Users
+    if not request.get_json():
+        abort(400, description="Not a JSON")
+
+    if 'email' not in request.get_json():
+        abort(400, description="Missing email")
+    if 'password' not in request.get_json():
+        abort(400, description="Missing password")
+
+    data = request.get_json()
+    print(data)
+    instance = Users(**data)
+    # instance.save()
+    with open ("tmp1.py", "a") as FILE:
+        FILE.write(instance)
+
+    return redirect("/login")

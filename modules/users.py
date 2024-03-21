@@ -175,8 +175,8 @@ if __name__ == "__main__":
         except ValueError as e:
             print("Error creating user:", e)
     # x = Users(email="user0@gmail.com", password="PWD0",first_name="First0", last_name="last0" )
-    x0 = Users("user0@gmail.com","mIzoZn@l5","0x500", "last0" )
-    x1 = Users(email="user0@gmail.com",password="mIzoZn@l5",first_name="0x500", last_name="last0" )
+    # x0 = Users("zikoAlJoker@gmail.com","ZikaJok@24","0x500", "last0" )
+    x1 = Users(email="zikoAlJoker@gmail.com",password="ZikaJok@24", nickname="ZikA Al joker", image="/static/images/users/openart-image_3vS15JnT_1710954202493_raw.jpg")
 
     x0.save("DB")
     print(x0.to_dict())

@@ -22,7 +22,7 @@ class Products(Base, dec_base):
     description = Column(String(length=1024), nullable=False, unique=True)
     about = Column(String(length=2048))
     img_list = Column(String(length=4096), nullable=False, default="")
-    owner_id = Column(Integer, ForeignKey('users.id'))
+    # owner_id = Column(Integer, ForeignKey('users.id'))
 
 
     def __init__(self, *args, **kwargs):
