@@ -10,3 +10,7 @@ def set_img_list(value):
      return ",".join(value) if value else ""
 
 print(set_img_list(m))
+ instance 
+<modules.users.Users object at 0x7f672dc262e0>
+ instance 
+<modules.users.Users object at 0x7fe39ad59a60>

@@ -8,7 +8,13 @@ from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from datetime import datetime
 import json
+import inspect
 
+import ast
+import os
+import re
+DEBUG = f" File:{os.path.abspath(__file__)} ,( line: {inspect.currentframe().f_lineno})"
+DEBUG_ = f"{os.path.basename(__file__)} , line {inspect.currentframe().f_lineno}\n{__file__}\n {os.path.abspath(__file__)}"
 
 app = Flask(__name__)
 dec_base = declarative_base()

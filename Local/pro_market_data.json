@@ -1,18 +1,8 @@
 {
-  "Products.e61f1125-31b5-4a5d-bb26-4ff86e6a84f0": {
-    "name": "pc_all_in_one-proX6 ",
-    "category": "Electronics - pc_all_in_one ",
-    "brand": "FujiTsu",
-    "price": 99.99,
-    "stock_quantity": 50,
-    "rating": 4.5,
-    "discount": 10.0,
-    "In_Stock": true,
-    "description": "pc_all_in_one 10 PureView ram 64 GB camera 16 MP + 8 MP + 12 MP +12 MP display 60.1 inches (15.49 cm) performance Qualcomm Snapdragon 875 storage 1 TB ssd 4TB HDD ",
-    "about": "More information about the sample product.",
-    "img_list": [
-      "/Market/static/images/market/pc_all_in_one0.jfif",
-      "/Market/static/images/market/pc_all_in_one1.jfif",
-      "/Market/static/images/market/pc_all_in_one2.jfif"
-    ],
+  "Users.12b01291-893e-4186-9370-5cd5c2848dbb": {
+    "email": "mohamed71291@gmail.com",
+    "password": "ZikaJok@24",
+    "first_name": "untitled",
+    "last_name": "untitled",
+    "nickname": "untitled",
     "created_at": 

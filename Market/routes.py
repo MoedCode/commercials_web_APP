@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-from Market import app, render_template, jsonify, session, redirect, make_response, request, abort, json
+import inspect
 
 import ast
+import os
+import re
+from Market import app, render_template, jsonify, session, redirect, make_response, request, abort, json, DEBUG
+from modules.users import Users
 
 
 @app.route("/")
@@ -74,19 +78,8 @@ def register_route():
     return render_template("register.html")
 
 
-@app.route("/post_user", methods=["POST"])
+@app.route("/post_user", methods=["POST"], strict_slashes=False)
 def post_user():
-
-    with open ("tmp1.md", "w") as FILE:
-        FILE.write(f"# {request.url}\n{request.get_json()}\n")
-    if "image" in request.files:
-        image_file = request.files["image"]
-        print(image_file)
-        image_file.save("/Market/static/images/users")
-    with open ("tmp1.md", "a") as FILE:
-        FILE.write(f"image_received\n{request.files}\n")
-
-    from modules.users import Users
     if not request.get_json():
         abort(400, description="Not a JSON")
 
@@ -94,12 +87,24 @@ def post_user():
         abort(400, description="Missing email")
     if 'password' not in request.get_json():
         abort(400, description="Missing password")
-
     data = request.get_json()
-    print(data)
-    instance = Users(**data)
-    # instance.save()
+    # if "image" in data:
+    #     image_file =data["image"]
+    #     print(f"\n\n:: image_file >> {image_file}\n\n")
+    #     print(f" File:{os.path.abspath(__file__)} ,( line: {inspect.currentframe().f_lineno})")
+
+    #     image_file.save("/Market/static/images/users")
+
+    del data["image"]
+    print(f"\n\n {data} \n\n")
+
+    print(f" \n\n :: objToInst >>",{**data})
+
+    instance = Users(email=data["email"], password=data["password"],first_name=data["first_name"], last_name=data["last_name"],
+                     nickname=data["nickname"])
+    instance.save("DB")
     with open ("tmp1.py", "a") as FILE:
-        FILE.write(instance)
+        FILE.write(f"\n instance \n{instance}")
 
     return redirect("/login")
+

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-
 import inspect
+
+import ast
+import os
 from modules.base import Base
 from modules.products import Products
-from Market import session, Column, String, Float,Integer ,Boolean, ForeignKey, DateTime, dec_base, relationship
-import os
-import re
-this = f"{os.path.basename(__file__)} at line {inspect.currentframe().f_lineno}\n{__file__}\n {os.path.abspath(__file__)}"
+from Market import session, Column, String, Float,Integer ,Boolean, ForeignKey, DateTime, dec_base, relationship,re, DEBUG
+
 class Users(Base, dec_base):
     __keys =  {"email", "password", "first_name", "last_name", "nickname", "budget", "image"}
 
@@ -20,17 +20,19 @@ class Users(Base, dec_base):
     nickname = Column(String(128), nullable=True)
     budget = Column(Integer(), nullable=False, default=5000)
     image = Column(String(150), nullable=True)
-    product = relationship('Products', backref="Owner", lazy=True)
+    # product = relationship('Products', backref="Owner", lazy=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # positional Arguments
         if args:
             if len(args) < 2:
-                print(f"{__class__.__name__} missing arguments\n{this}")
+                print(f"{__class__.__name__} missing arguments")
+                print(f" File:{os.path.abspath(__file__)} ,( line: {inspect.currentframe().f_lineno})")
                 exit(-1)
             if len(args) > 7:
-                print(f"{__class__.__name__} to much arguments\n{this}")
+                print(f"{__class__.__name__} to much arguments")
+                print(f" File:{os.path.abspath(__file__)} ,( line: {inspect.currentframe().f_lineno})")
                 exit(-1)
 
             self.email = self._validate_email(args[0])
@@ -43,7 +45,7 @@ class Users(Base, dec_base):
         if kwargs:
             for key in kwargs:
                 if key not in Users.__keys:
-                    print(f"{__class__.__name__} :: unknown {key} \n{this}")
+                    print(f"{__class__.__name__} :: unknown {key} \n{DEBUG}")
                     exit(-2)
 
             self.email = self._validate_email(kwargs["email"])
@@ -176,10 +178,10 @@ if __name__ == "__main__":
             print("Error creating user:", e)
     # x = Users(email="user0@gmail.com", password="PWD0",first_name="First0", last_name="last0" )
     # x0 = Users("zikoAlJoker@gmail.com","ZikaJok@24","0x500", "last0" )
-    x1 = Users(email="zikoAlJoker@gmail.com",password="ZikaJok@24", nickname="ZikA Al joker", image="/static/images/users/openart-image_3vS15JnT_1710954202493_raw.jpg")
+    # x1 = Users(email="zikoAlJoker@gmail.com",password="ZikaJok@24", nickname="ZikA Al joker", image="/static/images/users/openart-image_3vS15JnT_1710954202493_raw.jpg")
 
-    x0.save("DB")
-    print(x0.to_dict())
+    # x0.save("DB")
+    # print(x0.to_dict())
     # print()
     # print()
     # print(x1.to_dict())
