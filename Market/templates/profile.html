@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2>Profile</h2>
+            {% if user.image  %}
+            <div class="user-image">
+                <img src="../{{ user.image }}" alt="">
+            </div>
+            {% else %}
+            <div class="user-image">
+                <img src="../static/images/users/0-defult.jfif" alt="">
+            </div>
+            {% endif %}
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>First Name:</strong> {{ user.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+            <p><strong>Nickname:</strong> {{ user.nickname }}</p>
+            <p><strong>Budget:</strong> {{ user.budget }}</p>
+            <!-- Add more user information as needed -->
+        </div>
+    </div>
+</div>
+{% endblock %}

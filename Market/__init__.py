@@ -34,3 +34,6 @@ session = Session()
 
 
 from Market import routes
+# app = Flask(__name__)
+# app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{database_path}'
+# db = SQLAlchemy(app)

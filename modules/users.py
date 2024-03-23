@@ -21,7 +21,6 @@ class Users(Base, dec_base):
     budget = Column(Integer(), nullable=False, default=5000)
     image = Column(String(150), nullable=True)
     # product = relationship('Products', backref="Owner", lazy=True)
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # positional Arguments

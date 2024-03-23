@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
 
 from modules.base import Base
-from Market import session, Column, String, Float,Integer ,Boolean, ForeignKey, DateTime, dec_base
+from Market import  Column, String, Float,Integer ,Boolean, ForeignKey, DateTime, dec_base,json
 
 import uuid
 
@@ -22,6 +23,8 @@ class Products(Base, dec_base):
     description = Column(String(length=1024), nullable=False, unique=True)
     about = Column(String(length=2048))
     img_list = Column(String(length=4096), nullable=False, default="")
+    # owner  = Column(String(40), ForeignKey('users.id'))
+
     # owner_id = Column(Integer, ForeignKey('users.id'))
 
 
@@ -62,6 +65,7 @@ class Products(Base, dec_base):
             self.description = self._validate_description(kwargs.get('description'))
             self.about = self._validate_about(kwargs.get('about'))
             self.img_list = self._validate_img_list(kwargs.get('img_list'))
+
 
 
     # Adjusted validation and assignment method for in_stock and stock_quantity
@@ -176,3 +180,41 @@ class Products(Base, dec_base):
         new_dict = super().to_dict(save_fs)
         new_dict["img_list"] = self.get_img_list()
         return new_dict
+if __name__ == "__main__":
+    product_data = {
+        "name": "nokia 10 -pureView",
+        "category": "Electronics - smart phones ",
+        "brand": "Nokia",
+        "price": 99.99,
+        "stock_quantity": 50,
+        "rating": 4.5,
+        "discount": 10.0,
+        "In_Stock": True,
+
+        "description": "Summary -Nokia 10 PureView ram 8 GB camera 16 -MP + 8 MP + 12 MP +12 MP display 6.1 inches (15.49 cm) performance Qualcomm Snapdragon 875 storage 128 GB battery 4000 mAh",
+        "about": "More information about the sample product.",
+        "img_list": [
+            "/static/images/market/nokia_10_pureview.jfif",
+            "/static/images/market/nokia_10_pureview.jfif",
+    ]
+        }
+    x = Products(**product_data)
+    # x.created_at = str(x.created_at)
+    # x.updated_at =str( x.updated_at)
+    print(x.__dict__)
+    with open("tmp1.md", "a") as FILE:
+        FILE.write("\n x.to_dict() \n")
+        FILE.write(json.dumps(x.to_dict(), indent=4))
+        # FILE.write("\n x.__dict__ \n")
+        # FILE.write(json.dumps(x.__dict__, indent=4))
+
+    x.save("DB")
+
+    '''
+    x = Products(**product_data)
+    with open("tmp1.md", "ab") as FILE:
+        FILE.write(b"\n x.to_dict() \n")
+        pickle.dump(x.to_dict(), FILE)
+        FILE.write(b"\n x.__dict__ \n")
+        pickle.dump(x.__dict__, FILE)
+    '''
