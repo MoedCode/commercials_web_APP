@@ -7,7 +7,7 @@ import os
 import re
 from Market import app, render_template, jsonify, session, redirect, make_response, request, abort, json, DEBUG
 
-print(session.__dict__)
+
 @app.route("/")
 def home_rout():
     return render_template("home.html")
@@ -110,23 +110,25 @@ def post_user():
 
     return redirect("/login")
 
+from flask import jsonify
+
 @app.route("/profile", methods=["POST"])
 def profile_rout():
+    print(f"\n\n\n{request.form}\n")
     email = request.form.get("email")
-    password = request.form.get("password")
+    password = request.form.get("password").strip()
 
     from modules.users import Users
     user = session.query(Users).filter_by(email=email).first()
-    errMsg = f"no data found for {email} pleas insure that the provided email is correct "
-    if user is None:
-        flash(errMsg)
-        return redirect("/login")
-    if user:
-        if user.password != password:
-            flash("Incorrect Password!")
-            return redirect("/login")
+    print(f"email:{user.email}, password:{user.password}\n\n  ")
+    errMsg = f"No data found for {email}. Please ensure that the provided email is correct."
 
-    # If everything is fine, render the profile page
+    if user is None:
+        return jsonify({'success': False, 'error': errMsg})
+    elif user.password != password:
+        return jsonify({'success': False, 'error': 'Incorrect Password!'})
+
+    # If everything is fine, return success response
     return render_template("profile.html", user=user)
 
 

@@ -11,7 +11,7 @@
                     <h4>Login</h4>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="/profile">
+                    <form id="loginForm" method="POST">
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
@@ -21,7 +21,7 @@
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" id="loginBtn">Submit</button>
                         <button type="button" class="btn btn-primary" id="registerBtn"><a class="nav-link" href="{{ url_for('register_route')}}">Register</a></button>
                     </form>
                 </div>
@@ -43,4 +43,35 @@
         color: black !important;
     }
 </style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            loginUser(); // Call loginUser function to handle form submission asynchronously
+        });
+    });
+
+    function loginUser() {
+        var formData = new FormData(document.getElementById('loginForm')); // Get form data
+        fetch('/profile', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text()) // Change response type to text
+        .then(data => {
+
+        if(!data.startsWith("<!doctype html>")){
+            x = JSON.parse(data)
+            alert(x.error)
+            return
+        }
+        document.body.innerHTML =  data
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>
+
 {% endblock %}

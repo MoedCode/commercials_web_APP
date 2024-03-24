@@ -2,7 +2,7 @@
 import os
 import uuid
 from sys import argv
-from flask import Flask, render_template, jsonify, redirect, make_response, request, abort
+from flask import Flask, render_template, jsonify, redirect, make_response, request, abort, redirect, url_for
 from sqlalchemy import create_engine, Column, String, Float, Boolean, Integer, ForeignKey, DateTime
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
@@ -17,6 +17,7 @@ DEBUG = f" File:{os.path.abspath(__file__)} ,( line: {inspect.currentframe().f_l
 DEBUG_ = f"{os.path.basename(__file__)} , line {inspect.currentframe().f_lineno}\n{__file__}\n {os.path.abspath(__file__)}"
 
 app = Flask(__name__)
+# app.secret_key = 'ProMarket_SK'
 dec_base = declarative_base()
 
 # Update your MySQL database credentials here

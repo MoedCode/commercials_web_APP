@@ -201,7 +201,7 @@ if __name__ == "__main__":
     x = Products(**product_data)
     # x.created_at = str(x.created_at)
     # x.updated_at =str( x.updated_at)
-    print(x.__dict__)
+    # print(x.__dict__)
     with open("tmp1.md", "a") as FILE:
         FILE.write("\n x.to_dict() \n")
         FILE.write(json.dumps(x.to_dict(), indent=4))

@@ -2,7 +2,8 @@
 
 from modules.products import Products
 import os
-
+import json
+from Market import session
 if __name__ == "__main__":
     # List of product data for each image
     products_list = [
@@ -110,12 +111,53 @@ if __name__ == "__main__":
                 "/static/images/market/Camera2.jfif"
             ]
         },
+        {
+            "name": "Camera2",
+            "category": "Electronics",
+            "brand": "Brand Z",
+            "price": 799.99,
+            "stock_quantity": 15,
+            "rating": 4.7,
+            "discount": 20.0,
+            "in_stock": True,
+            "description": "Description for Camera2.",
+            "about": "More information about Camera2.",
+            "img_list": [
+                "/static/images/market/Camera0.jfif",
+                "/static/images/market/Camera1.jfif",
+                "/static/images/market/Camera2.jfif"
+            ]
+        },
         # Add more products as needed
     ]
 
     # List to store product objects
-    product_objects = []
 
+    for product_data in products_list:
+        # Check if the product already exists in the database
+        product_name = product_data["name"]
+        existing_product = session.query(Products).filter_by(name=product_name).first()
+
+        if existing_product:
+            print(f"Product '{product_name}' already exists in the database. Skipping...")
+        else:
+            # Create a new product instance
+            product_instance = Products(**product_data)
+            # Save the new product instance to the database
+            product_instance.save("DB")
+            print(f"Product '{product_name}' saved to the database.")
+
+
+
+
+
+    # print(len(products_inst))
+    # with open ("tmp1.md", "w") as FILE:
+        # json.dump(products_inst, FILE,  indent=4)
+        # FILE.write(f"```py\n {products_inst}\n ```")
+
+
+'''
     # Iterate over product data and create product objects
     for product_data in products_list:
         img_list = product_data.pop("img_list")  # Remove img_list from product_data
@@ -131,3 +173,4 @@ if __name__ == "__main__":
     for product_instance in product_objects:
         product_instance.save(save_option="DB")
         print(f"Product saved: {product_instance.name}")
+'''
