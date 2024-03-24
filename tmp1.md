@@ -132,3 +132,5 @@
         "__class__": "Products"
     }
 ]
+ instance 
+<modules.users.Users object at 0x7f158273ca60>

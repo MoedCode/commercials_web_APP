@@ -96,14 +96,13 @@ def post_user():
     #     print(f" File:{os.path.abspath(__file__)} ,( line: {inspect.currentframe().f_lineno})")
 
     #     image_file.save("/Market/static/images/users")
-
+    data["password"] = data["password"].strip()
     del data["image"]
-    print(f"\n\n {data} \n\n")
-
-    print(f" \n\n :: objToInst >>",{**data})
+    print(f"\n\n a7a {data} \n\n")
 
     instance = Users(email=data["email"], password=data["password"],first_name=data["first_name"], last_name=data["last_name"],
                      nickname=data["nickname"])
+    print(f" \n\n :: user instance >>  {instance} \n\n")
     instance.save("DB")
     with open ("tmp1.md", "a") as FILE:
         FILE.write(f"\n instance \n{instance}")
