@@ -16,8 +16,8 @@ def home_rout():
 @app.route('/api/market')
 def marketApi():
     from modules.products import Products
-
-    all_products = session.query(Products).all()
+    with session.no_autoflush:
+        all_products = session.query(Products).all()
     products_dict_list = [product.to_dict() for product in all_products]
 
     return jsonify(products_dict_list)
@@ -26,21 +26,22 @@ def marketApi():
 @app.route('/market')
 def market_route():
     from modules.products import Products
-
-    products_list = session.query(Products).all()
+    with session.no_autoflush:
+        products_list = session.query(Products).all()
     # Convert the Products objects to a serializable format
     products_dict_list = [product.to_dict() for product in products_list]
     return render_template('market.html', products_list=products_dict_list)
 
-
 @app.route('/product/<product_id>')
 def product_rout(product_id):
     from modules.products import Products
-
-    product_instance = session.query(Products).get(product_id)
+    with session.no_autoflush:
+        product_instance = session.query(Products).get(product_id)
     if product_instance:
         # Convert the string back to a list of image paths
-        product_instance.img_list = product_instance.img_list.split(',')
+
+        if isinstance(product_instance.img_list , str):
+            product_instance.img_list = product_instance.img_list.split(',')
         return render_template('product.html', product=product_instance)
     else:
         return render_template('product_not_found.html', product_id=product_id)

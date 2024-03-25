@@ -165,11 +165,19 @@ class Products(Base, dec_base):
         return ",".join(value) if value else ""
 
     # Getter method to retrieve img_list as a list
+
+    # def get_img_list(self):
+    #     # print(self.__dict__.keys())
+    #     # Str = self.img_list
+    #     # print(Str)
+
+    #     return [] if not self.img_list else self.img_list.split(",")
     def get_img_list(self):
-        # print(self.__dict__.keys())
-        # Str = self.img_list
-        # print(Str)
-        return [] if not self.img_list else self.img_list.split(",")
+        if isinstance(self.img_list, str):
+            return self.img_list.split(",")
+        else:
+            return self.img_list
+
 
     # Setter method to store img_list as a string in the database
     @staticmethod
