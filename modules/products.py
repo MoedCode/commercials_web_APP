@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 from modules.base import Base
-from Market import  Column, String, Float,Integer ,Boolean, ForeignKey, DateTime, dec_base,json
+from Market import  Column, String, Float,Integer ,Boolean, ForeignKey, DateTime, dec_base,json, relationship, re
 
 import uuid
 
 from datetime import datetime
-
+from modules.users import Users
 
 class Products(Base, dec_base):
 
@@ -23,9 +23,11 @@ class Products(Base, dec_base):
     description = Column(String(length=1024), nullable=False, unique=True)
     about = Column(String(length=2048))
     img_list = Column(String(length=4096), nullable=False, default="")
-    # owner  = Column(String(40), ForeignKey('users.id'))
+    owner = Column(String(40), ForeignKey('users.id'))
 
-    # owner_id = Column(Integer, ForeignKey('users.id'))
+
+
+
 
 
     def __init__(self, *args, **kwargs):
@@ -188,6 +190,8 @@ class Products(Base, dec_base):
         new_dict = super().to_dict(save_fs)
         new_dict["img_list"] = self.get_img_list()
         return new_dict
+
+
 if __name__ == "__main__":
     product_data = {
         "name": "nokia 10 -pureView",

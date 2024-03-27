@@ -7,7 +7,7 @@ import os
 import re
 from Market import app, render_template, jsonify, session, redirect, make_response, request, abort, json, DEBUG
 
-
+session.no_autoflush
 @app.route("/")
 def home_rout():
     return render_template("home.html")

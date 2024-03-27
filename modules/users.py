@@ -4,7 +4,7 @@ import inspect
 import ast
 import os
 from modules.base import Base
-from modules.products import Products
+
 from Market import session, Column, String, Float,Integer ,Boolean, ForeignKey, DateTime, dec_base, relationship,re, DEBUG
 
 class Users(Base, dec_base):
@@ -20,8 +20,7 @@ class Users(Base, dec_base):
     nickname = Column(String(128), nullable=True)
     budget = Column(Integer(), nullable=False, default=5000)
     image = Column(String(150), nullable=True)
-    # product = relationship('Products', backref="Owner", lazy=True)
-    owner_id = Column(String(50), ForeignKey('users.id'))
+    products = relationship("Products", backref="Ownser")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # positional Arguments

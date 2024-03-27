@@ -15,13 +15,21 @@
                 <img src="../static/images/users/0-defult.jfif" alt="">
             </div>
             {% endif %}
-            <p><strong>Email:</strong> {{ user.email }}</p>
-            <p><strong>First Name:</strong> {{ user.first_name }}</p>
-            <p><strong>Last Name:</strong> {{ user.last_name }}</p>
-            <p><strong>Nickname:</strong> {{ user.nickname }}</p>
-            <p><strong>Budget:</strong> {{ user.budget }}</p>
+            <h3><strong>Email:</strong> {{ user.email }}</h3>
+            <h3><strong>First Name:</strong> {{ user.first_name }}</h3>
+            <h3><strong>Last Name:</strong> {{ user.last_name }}</h3>
+            <h3><strong>Nickname:</strong> {{ user.nickname }}</h3>
+            <h3><strong>Budget:</strong> {{ user.budget }}</h3>
+            {% if user.products %}
+            <h3><strong>Owned Products</strong>
+            {% for product in user.products %}
+            <p>{{ product.name  }}</p>
+            {% endfor %}
+            </h3>
+            {% endif %}
             <!-- Add more user information as needed -->
         </div>
     </div>
 </div>
 {% endblock %}
+Relationship

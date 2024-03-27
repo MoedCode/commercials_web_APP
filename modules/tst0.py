@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from modules.products import Products
+from modules.modulesTst import Products2
 import os
 import json
 from Market import session
