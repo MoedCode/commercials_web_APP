@@ -1,9 +1,11 @@
+
 #registerForm {
     display: flex;
     flex-direction: column;
     margin-left: 30% ;
     gap: 2%;
     width: 90%;
+    height: 70%;
 
 }
 #registerForm p{
