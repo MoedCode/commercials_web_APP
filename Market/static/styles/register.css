@@ -1,0 +1,33 @@
+#registerForm {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30% ;
+    gap: 2%;
+    width: 90%;
+
+}
+#registerForm p{
+    margin: 0;
+}
+#registerForm div{
+    width: 90% !important;
+
+}
+#registerForm input{
+    width: 60%;
+    border-radius: 10px;
+}
+#registerForm label{
+    margin-left: 2%;
+}
+#photo-preview {
+    width: 25%; height: 25%;
+
+}
+#avatar-preview{
+display: none;
+}
+
+.form-inputs{
+
+}

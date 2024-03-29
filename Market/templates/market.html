@@ -34,8 +34,8 @@
                     <div class="buttons">
                         <button class="btn btn-info"><a id="product_link" href="{{ url_for('product_rout', product_id=product.id) }}" target="_blank">View page</a></button>
 
-                        <button class="btn btn-info" onclick="openPopup({{product.id }} )">More Info</button>
-                        <button class="btn btn-success" onclick="purchaseProduct({{ product.id }})">Purchase</button>
+                        <button class="btn btn-info" onclick="openPopup('{{product.id }}' )">More Info</button>
+                        <button class="btn btn-success" onclick="purchaseProduct('{{ product.id }}')">Purchase</button>
                     </div>
                 </div>
             </div>
@@ -62,8 +62,13 @@
     let backPtn = `
     <button  class="btn btn-info" onclick="goBack()"><a href="/market">Market</a></button>
     `;
-
-    function openPopup(productId) {
+    function purchaseProduct(productId){
+        console.log(":: purchaseProduct >> ",productId);
+    }
+    function openPopup(productId='149002e8-a584-46b6-8711-5e8d80b0c50a') {
+        if (typeof productId != "string"){
+            console.log("productId type Error");
+        }
         console.log(typeof productId);
 
         let product = {};

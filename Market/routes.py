@@ -6,7 +6,7 @@ import ast
 import os
 import re
 from Market import app, render_template, jsonify, session, redirect, make_response, request, abort, json, DEBUG
-
+from form import RegisterForm
 session.no_autoflush
 @app.route("/")
 def home_rout():
@@ -70,13 +70,14 @@ def post_route():
 
 @app.route("/login")
 def login_route():
-
     return render_template("login.html")
 
 @app.route("/register")
 def register_route():
 
-    return render_template("register.html")
+    form = RegisterForm()
+
+    return render_template("register.html", form=form)
 
 
 @app.route("/post_user", methods=["POST"], strict_slashes=False)

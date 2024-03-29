@@ -1,66 +1,50 @@
-<!-- register.html -->
+{% extends 'base.html' %}
 
-{% extends "base.html" %}
-
-{% block title %}Register{% endblock %}
+{% block title %}
+ Register
+{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h2>Register</h2>
-            <form id="registerForm" enctype="multipart/form-data">
 
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="first_name">First Name:</label>
-                    <input type="text" class="form-control" id="first_name" name="first_name">
-                </div>
-                <div class="form-group">
-                    <label for="last_name">Last Name:</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name">
-                </div>
-                <div class="form-group">
-                    <label for="nickname">Nickname:</label>
-                    <input type="text" class="form-control" id="nickname" name="nickname">
-                </div>
-                <div class="form-group">
-                    <label for="image">Image:</label>
-                    <input type="file" class="form-control-file" id="image" name="image">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
+<link rel="stylesheet" href="../static/styles/register.css">
+
+<form id="registerForm" method="POST"  style="color: white;" >
+
+    <div class="form-inputs">
+        <p>{{ form.photo.label() }}</p>
+        {{ form.photo(class="from-content", type="file", id="photo-input", accept="image/*", onchange="displayPhoto(event)") }}
+        <img id="photo-preview" src="" alt="Avatar Preview" style="display: none;">
     </div>
-</div>
 
-<script>
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-        var formData = new FormData(this); // Create FormData object from form
-        var jsonData = {};
-        formData.forEach(function(value, key) { // Convert FormData to JSON
-            jsonData[key] = value;
-        });
-        var xhr = new XMLHttpRequest(); // Create XMLHttpRequest object
-        xhr.open('POST', '/post_user'); // Specify POST request to /post_user route
-        xhr.setRequestHeader('Content-Type', 'application/json'); // Set Content-Type header to application/json
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                window.location.href = '/login'; // Redirect to login page if registration successful
-            } else {
-                console.error('Error:', xhr.responseText); // Log error message if registration fails
-            }
-        };
-        xhr.send(JSON.stringify(jsonData)); // Send JSON data to server
-    });
-</script>
+    <div class="form-inputs">
+        <p>{{ form.password.label() }}</p>
+        {{ form.password(class="from-content", placeholder="Password ' required ' ")  }}
+        </div>
+    <div class="form-inputs">
+        <p>{{ form.conf_PWD.label() }}</p>
+        {{ form.conf_PWD(class="from-content", placeholder="confirm Password ' required ' ")  }}
+        </div>
+    <div class="form-inputs">
+            <p>{{ form.first_name.label()  }}</p>
+            {{ form.first_name(class="from-content", placeholder="First Name") }}
+    </div>
+    <div class="form-inputs">
+        <p>{{ form.last_name.label() }}</p>
+        {{ form.last_name(class="from-content", placeholder="Last Name")  }}
+    </div>
+    <div class="form-inputs">
+        <p>{{ form.nickname.label() }}</p>
+        {{ form.nickname(class="from-content", placeholder="nickame")  }}
 
+    </div>
+    <br>
+    <div class="sub-btn">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<style>
+
+
+</style>
+<script src="../static/scripts/register.js"></script>
 {% endblock %}

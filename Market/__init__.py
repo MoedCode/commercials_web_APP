@@ -18,6 +18,7 @@ DEBUG_ = f"{os.path.basename(__file__)} , line {inspect.currentframe().f_lineno}
 
 app = Flask(__name__)
 # app.secret_key = 'ProMarket_SK'
+app.config['SECRET_KEY'] = 'a917ead3a9f56eaf1fbc1605273cb71bee52598c26eb9149f3b09a16eafe'
 dec_base = declarative_base()
 
 # Update your MySQL database credentials here
