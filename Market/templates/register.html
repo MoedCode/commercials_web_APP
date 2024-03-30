@@ -8,49 +8,48 @@
 
 <link rel="stylesheet" href="../static/styles/register.css">
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+<body class="text-center">
+    <div class="container">
+        <form id="registerForm" method="POST"  style="color: white;" >
 
-<form id="registerForm" method="POST"  style="color: white;" >
 
+            <div class="form-inputs">
+                <p>{{ form.photo.label() }}</p>
+                {{ form.photo(class="from-content", type="file", id="photo-input", accept="image/*", onchange="displayPhoto(event)") }}
+                <img id="photo-preview" src="" alt="Avatar Preview" style="display: none;">
+            </div>
 
-    <div class="form-inputs">
-        <p>{{ form.photo.label() }}</p>
-        {{ form.photo(class="from-content", type="file", id="photo-input", accept="image/*", onchange="displayPhoto(event)") }}
-        <img id="photo-preview" src="" alt="Avatar Preview" style="display: none;">
+            <div class="form-inputs">
+                <p>{{ form.password.label() }}</p>
+                {{ form.password(class="from-content", placeholder="Password ' required ' ")  }}
+                </div>
+            <div class="form-inputs">
+                <p>{{ form.conf_PWD.label() }}</p>
+                {{ form.conf_PWD(class="from-content", placeholder="confirm Password ' required ' ")  }}
+                </div>
+            <div class="form-inputs">
+                    <p>{{ form.first_name.label()  }}</p>
+                    {{ form.first_name(class="from-content", placeholder="First Name") }}
+            </div>
+            <div class="form-inputs">
+                <p>{{ form.last_name.label() }}</p>
+                {{ form.last_name(class="from-content", placeholder="Last Name")  }}
+            </div>
+            <div class="form-inputs">
+                <p>{{ form.nickname.label() }}</p>
+                {{ form.nickname(class="from-content", placeholder="nickame")  }}
+
+            </div>
+            <br>
+            <div class="sub-btn">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
     </div>
-
-    <div class="form-inputs">
-        <p>{{ form.password.label() }}</p>
-        {{ form.password(class="from-content", placeholder="Password ' required ' ")  }}
-        </div>
-    <div class="form-inputs">
-        <p>{{ form.conf_PWD.label() }}</p>
-        {{ form.conf_PWD(class="from-content", placeholder="confirm Password ' required ' ")  }}
-        </div>
-    <div class="form-inputs">
-            <p>{{ form.first_name.label()  }}</p>
-            {{ form.first_name(class="from-content", placeholder="First Name") }}
-    </div>
-    <div class="form-inputs">
-        <p>{{ form.last_name.label() }}</p>
-        {{ form.last_name(class="from-content", placeholder="Last Name")  }}
-    </div>
-    <div class="form-inputs">
-        <p>{{ form.nickname.label() }}</p>
-        {{ form.nickname(class="from-content", placeholder="nickame")  }}
-
-    </div>
-    <br>
-    <div class="sub-btn">
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</form>
-<style>
+</body>
 
 
-</style>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
 
 <script src="../static/scripts/register.js"></script>
 {% endblock %}

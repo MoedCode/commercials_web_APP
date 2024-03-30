@@ -5,10 +5,10 @@ function displayPhoto(event) {
         reader.onload = function(e) {
             const preview = document.getElementById('photo-preview');
             preview.src = e.target.result;
-            preview.style = "width: 25%; height: 25% margin-left: 50%;"
+            preview.style = "width: 15%; height: 15% ;margin-left: 30%;"
             preview.style.display = 'block';
             resizeImage(input.files[0]);
-        }
+        };
         reader.readAsDataURL(input.files[0]);
     }
 }
