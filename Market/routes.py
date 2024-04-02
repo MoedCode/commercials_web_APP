@@ -12,7 +12,7 @@ session.no_autoflush
 def home_rout():
     return render_template("home.html")
 
-
+                # MARKET ROUTS
 @app.route('/api/market')
 def marketApi():
     from modules.products import Products
@@ -21,8 +21,7 @@ def marketApi():
     products_dict_list = [product.to_dict() for product in all_products]
 
     return jsonify(products_dict_list)
-
-
+# MARKET API
 @app.route('/market')
 def market_route():
     from modules.products import Products
@@ -31,6 +30,8 @@ def market_route():
     # Convert the Products objects to a serializable format
     products_dict_list = [product.to_dict() for product in products_list]
     return render_template('market.html', products_list=products_dict_list)
+
+                    #  PRODUCT ROUTES
 
 @app.route('/product/<product_id>')
 def product_rout(product_id):
@@ -45,7 +46,7 @@ def product_rout(product_id):
         return render_template('product.html', product=product_instance)
     else:
         return render_template('product_not_found.html', product_id=product_id)
-
+# PRODUCT API
 @app.route('/api/product/<product_id>')
 def product_API(product_id):
     from modules.products import Products
@@ -58,6 +59,8 @@ def product_API(product_id):
     else:
         return jsonify({"Error":"product not found"}), 304
 
+                        # ABOUT ROUTES
+
 @app.route('/about')
 def about_route():
     return render_template('about.html')
@@ -66,16 +69,32 @@ def post_route():
 
     return render_template("post.html")
 
-# Authentication  Routes
+                        # Authentication  Routes
 
 @app.route("/login")
 def login_route():
     return render_template("login.html")
 
-@app.route("/register")
-def register_route():
+# REGISTER ROUTE
 
+@app.route("/register", methods=['GET', 'POST'])
+def register_route():
     form = RegisterForm()
+    from modules.users import Users
+    usr_obj = {}
+    data_obj = form.validate_on_submit()
+    print(f"85 data_obj {data_obj}\n\n")
+
+    if data_obj:
+        print(f"form {form.email.data}\n\n")
+        # usr_inst = Users(email=form.email, password=form.password,  )
+
+        for key in form:
+            if form[key]:
+                usr_obj[key] = form[key]
+                print(key)
+        print(f"user {usr_obj}")
+        return jsonify(usr_obj)
 
     return render_template("register.html", form=form)
 

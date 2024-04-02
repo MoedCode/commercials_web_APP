@@ -3,6 +3,7 @@ import inspect
 
 import ast
 import os
+import phonenumbers
 from modules.base import Base
 
 from Market import session, Column, String, Float,Integer ,Boolean, ForeignKey, DateTime, dec_base, relationship,re, DEBUG
@@ -70,11 +71,31 @@ class Users(Base, dec_base):
             platforms_str = ", ".join(valid_platforms)
             raise ValueError(f"Invalid email format or domain. Valid email platforms are: {platforms_str}")
         return value
+
+    def _validate_phone_number(self, value, country):
+        if value is not None:
+            raise ValueError("Phone number is required ")
+        if country is None:
+            country = self.country
+
+        if not isinstance(value, str):
+            value = str(value)
+
+            # Parse the phone number
+            try:
+                parsed_number = phonenumbers.parse(value, country)
+            except phonenumbers.phonenumberutil.NumberParseException as e:
+                raise ValueError(f"Invalid phone number: {str(e)}")
+
+            # Validate the phone number
+            if not phonenumbers.is_valid_number(parsed_number):
+                raise ValueError("Invalid phone number")
+        return value
     def _validate_name(self, value):
         if value is  None:
             return "untitled"
         if not isinstance(value, str):
-             return  str(value)
+            value = str(value)
         if value.replace(" ", "") == "":
             return  "untitled"
         if len(value) > 128:
